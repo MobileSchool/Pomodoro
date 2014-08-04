@@ -201,6 +201,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Mobile School at IFRN-CNAT";
 				TargetAttributes = {
+					A7CD59C3199011E400A0FAE8 = {
+						DevelopmentTeam = SAQR654RZN;
+					};
 					A7CD59E4199011E400A0FAE8 = {
 						TestTargetID = A7CD59C3199011E400A0FAE8;
 					};
