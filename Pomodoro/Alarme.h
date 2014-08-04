@@ -1,5 +1,5 @@
 //
-//  Pomodoro.h
+//  Alarme.h
 //  Pomodoro
 //
 //  Created by Leonardo Ataide Minora on 04/08/14.
@@ -7,14 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Time.h"
-#import "Alarme.h"
 
-@interface Pomodoro : NSObject
+@interface Alarme : NSObject
 
-@property Time *trabalho;
-@property Time *descanso;
-
-@property Alarme *alarme;
+@property NSString *nome;
 
 @end
