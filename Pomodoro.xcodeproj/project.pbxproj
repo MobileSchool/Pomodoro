@@ -18,6 +18,7 @@
 		A7CD59E8199011E400A0FAE8 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7CD59C7199011E400A0FAE8 /* Cocoa.framework */; };
 		A7CD59F0199011E400A0FAE8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A7CD59EE199011E400A0FAE8 /* InfoPlist.strings */; };
 		A7CD59F2199011E400A0FAE8 /* PomodoroTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A7CD59F1199011E400A0FAE8 /* PomodoroTests.m */; };
+		A7CD59FD1990146300A0FAE8 /* Pomodoro.m in Sources */ = {isa = PBXBuildFile; fileRef = A7CD59FC1990146300A0FAE8 /* Pomodoro.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,8 @@
 		A7CD59ED199011E400A0FAE8 /* PomodoroTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PomodoroTests-Info.plist"; sourceTree = "<group>"; };
 		A7CD59EF199011E400A0FAE8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A7CD59F1199011E400A0FAE8 /* PomodoroTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PomodoroTests.m; sourceTree = "<group>"; };
+		A7CD59FB1990146300A0FAE8 /* Pomodoro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pomodoro.h; sourceTree = "<group>"; };
+		A7CD59FC1990146300A0FAE8 /* Pomodoro.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pomodoro.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +123,8 @@
 				A7CD59DC199011E400A0FAE8 /* MainMenu.xib */,
 				A7CD59DF199011E400A0FAE8 /* Images.xcassets */,
 				A7CD59CE199011E400A0FAE8 /* Supporting Files */,
+				A7CD59FB1990146300A0FAE8 /* Pomodoro.h */,
+				A7CD59FC1990146300A0FAE8 /* Pomodoro.m */,
 			);
 			path = Pomodoro;
 			sourceTree = "<group>";
@@ -257,6 +262,7 @@
 			files = (
 				A7CD59DB199011E400A0FAE8 /* AppDelegate.m in Sources */,
 				A7CD59D4199011E400A0FAE8 /* main.m in Sources */,
+				A7CD59FD1990146300A0FAE8 /* Pomodoro.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -469,6 +475,7 @@
 				A7CD59F7199011E400A0FAE8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A7CD59F8199011E400A0FAE8 /* Build configuration list for PBXNativeTarget "PomodoroTests" */ = {
 			isa = XCConfigurationList;
@@ -477,6 +484,7 @@
 				A7CD59FA199011E400A0FAE8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
