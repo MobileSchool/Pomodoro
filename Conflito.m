@@ -21,7 +21,7 @@
     
 }
 -(void) julian{
-    
+    NSLog(@"teste");
 }
 
 
