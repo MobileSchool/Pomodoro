@@ -18,6 +18,7 @@
     NSLog(@"Teste de método Dennis");
 ////////////////////Teste de conflito (Dennis)/////////////////////////
     NSLog(@"Teste de método Dennis");
+    NSLog(@"Bug Dennis");
     NSLog(@"Teste de método Dennis");
     //Julian
     
