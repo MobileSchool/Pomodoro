@@ -30,7 +30,7 @@
 // teste    
 }
 -(void) julian{
-    
+    NSLog(@"teste");
 }
 
 
