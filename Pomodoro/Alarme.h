@@ -10,6 +10,6 @@
 
 @interface Alarme : NSObject
 
-@property NSString *nome;
+@property (nonatomic,strong) NSSound *beep;
 
 @end

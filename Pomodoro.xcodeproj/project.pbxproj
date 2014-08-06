@@ -24,6 +24,7 @@
 		A7CD5A0819901D1900A0FAE8 /* background-p.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A7CD5A0519901D1900A0FAE8 /* background-p.jpg */; };
 		A7CD5A0919901D1900A0FAE8 /* DSCN1463.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A7CD5A0619901D1900A0FAE8 /* DSCN1463.jpg */; };
 		A7CD5A0A19901D1900A0FAE8 /* Start_button_red.png in Resources */ = {isa = PBXBuildFile; fileRef = A7CD5A0719901D1900A0FAE8 /* Start_button_red.png */; };
+		B30567B01991B409001C70B0 /* beep.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B30567AF1991B409001C70B0 /* beep.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		A7CD5A0519901D1900A0FAE8 /* background-p.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "background-p.jpg"; sourceTree = "<group>"; };
 		A7CD5A0619901D1900A0FAE8 /* DSCN1463.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = DSCN1463.jpg; sourceTree = "<group>"; };
 		A7CD5A0719901D1900A0FAE8 /* Start_button_red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Start_button_red.png; sourceTree = "<group>"; };
+		B30567AF1991B409001C70B0 /* beep.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = beep.mp3; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +142,7 @@
 				A7CD59FE199015F800A0FAE8 /* Time.h */,
 				A7CD5A011990165600A0FAE8 /* Alarme.h */,
 				A7CD5A021990165600A0FAE8 /* Alarme.m */,
+				B30567AF1991B409001C70B0 /* beep.mp3 */,
 				A7CD59FF199015F800A0FAE8 /* Time.m */,
 				A7CD59FC1990146300A0FAE8 /* Pomodoro.m */,
 			);
@@ -267,6 +270,7 @@
 			files = (
 				A7CD59D2199011E400A0FAE8 /* InfoPlist.strings in Resources */,
 				A7CD59E0199011E400A0FAE8 /* Images.xcassets in Resources */,
+				B30567B01991B409001C70B0 /* beep.mp3 in Resources */,
 				A7CD59D8199011E400A0FAE8 /* Credits.rtf in Resources */,
 				A7CD5A0A19901D1900A0FAE8 /* Start_button_red.png in Resources */,
 				A7CD5A0819901D1900A0FAE8 /* background-p.jpg in Resources */,
