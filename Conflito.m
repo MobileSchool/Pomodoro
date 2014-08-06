@@ -12,6 +12,15 @@
 
 -(void) dennis{
     
+    
+    NSLog(@"Teste de método Dennis");
+    NSLog(@"Teste de método Dennis");
+    NSLog(@"Teste de método Dennis");
+    NSLog(@"Teste de método Dennis");
+    NSLog(@"Teste de método Dennis");
+    
+    
+    
 }
 
 -(void) italo{
