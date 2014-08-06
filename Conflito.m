@@ -25,6 +25,12 @@
 
 -(void) italo{
     
+    
+    BOOL conflito_italo = false;
+    
+    conflito_italo = true;
+
+    
 }
 -(void) minora{
 // teste    
