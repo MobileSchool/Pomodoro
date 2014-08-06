@@ -10,6 +10,9 @@
 
 @implementation Alarme
 
+
+// Método de inicialização para colocar endereço de arquivo na variavel beep
+
 - (instancetype)init
 {
     self = [super init];
@@ -19,10 +22,14 @@
     return self;
 }
 
+// Método que ativa o alarme
+
 - (void)tocar{
-
-    [self.beep play];
-
+    
+    if (self.beep) {
+        [self.beep play];
+    }
+    
 }
 
 
