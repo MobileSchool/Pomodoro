@@ -25,7 +25,6 @@
 		A7CD5A0919901D1900A0FAE8 /* DSCN1463.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A7CD5A0619901D1900A0FAE8 /* DSCN1463.jpg */; };
 		A7CD5A0A19901D1900A0FAE8 /* Start_button_red.png in Resources */ = {isa = PBXBuildFile; fileRef = A7CD5A0719901D1900A0FAE8 /* Start_button_red.png */; };
 		B30567B01991B409001C70B0 /* beep.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B30567AF1991B409001C70B0 /* beep.mp3 */; };
-		E31A0DDA1992A31B00B2D249 /* Conflito.m in Sources */ = {isa = PBXBuildFile; fileRef = E31A0DD91992A31A00B2D249 /* Conflito.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,8 +67,6 @@
 		A7CD5A0619901D1900A0FAE8 /* DSCN1463.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = DSCN1463.jpg; sourceTree = "<group>"; };
 		A7CD5A0719901D1900A0FAE8 /* Start_button_red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Start_button_red.png; sourceTree = "<group>"; };
 		B30567AF1991B409001C70B0 /* beep.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = beep.mp3; sourceTree = SOURCE_ROOT; };
-		E31A0DD81992A31A00B2D249 /* Conflito.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Conflito.h; sourceTree = "<group>"; };
-		E31A0DD91992A31A00B2D249 /* Conflito.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Conflito.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,8 +93,6 @@
 		A7CD59BB199011E400A0FAE8 = {
 			isa = PBXGroup;
 			children = (
-				E31A0DD81992A31A00B2D249 /* Conflito.h */,
-				E31A0DD91992A31A00B2D249 /* Conflito.m */,
 				A7CD59CD199011E400A0FAE8 /* Pomodoro */,
 				A7CD59EB199011E400A0FAE8 /* PomodoroTests */,
 				A7CD59C6199011E400A0FAE8 /* Frameworks */,
@@ -304,7 +299,6 @@
 				A7CD59D4199011E400A0FAE8 /* main.m in Sources */,
 				A7CD5A031990165600A0FAE8 /* Alarme.m in Sources */,
 				A7CD59FD1990146300A0FAE8 /* Pomodoro.m in Sources */,
-				E31A0DDA1992A31B00B2D249 /* Conflito.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
