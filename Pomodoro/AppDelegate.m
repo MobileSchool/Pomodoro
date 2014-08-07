@@ -7,10 +7,12 @@
 //
 
 #import "AppDelegate.h"
+#import "Alarme.h"
 
 int second=59;
 int minute=24;
 bool started=FALSE;
+Alarme *alarme;
 
 @implementation AppDelegate
 
@@ -24,6 +26,7 @@ bool started=FALSE;
         started=TRUE; //define strated como true
         [_startButton setEnabled: NO];//desabilita botao start
         [self tick:nil]; //chama funcao tick
+        alarme = [[Alarme alloc] init]; // Alocação e iniciação da instancia de alarme
     }
 
 }
@@ -49,6 +52,7 @@ bool started=FALSE;
             [_startButton setEnabled: YES];//abilita botao start
             second=0;//atribui o valor 59 para segundo
             minute=25;//atribui o valor 24 para minuto
+            [alarme tocar]; // Inicia os beeps
         }
 		
 		second-=1;//decrescenta 1 segundo

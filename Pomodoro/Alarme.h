@@ -11,5 +11,6 @@
 @interface Alarme : NSObject
 
 @property (nonatomic,strong) NSSound *beep;
+- (void)tocar;
 
 @end

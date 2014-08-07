@@ -15,9 +15,13 @@
 
 - (instancetype)init
 {
+
     self = [super init];
+// Pegando URL do arquivo beep
+    NSURL *url = [[NSBundle mainBundle] URLForResource:@"beep" withExtension:@"mp3"];
     if (self) {
-        self.beep = [[NSSound alloc] initWithContentsOfFile:@"/Users/DennisNunes/Dropbox/Documents To Go/Objective-C/Pomodoro/beep.mp3" byReference:YES];
+// Atribuindo endereço a beep
+        self.beep = [[NSSound alloc] initWithContentsOfURL:url byReference:YES];
     }
     return self;
 }
@@ -31,6 +35,7 @@
     }
     
 }
+
 
 
 @end
