@@ -30,7 +30,7 @@ Alarme *alarme;
     }
 
 }
-// teste bla bla bla 
+
 
 - (void) tick:(id)sender{ //funcao tick
     if(started){ // se started for true...
