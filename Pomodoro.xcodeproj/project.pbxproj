@@ -25,7 +25,7 @@
 		A7CD5A0919901D1900A0FAE8 /* DSCN1463.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A7CD5A0619901D1900A0FAE8 /* DSCN1463.jpg */; };
 		A7CD5A0A19901D1900A0FAE8 /* Start_button_red.png in Resources */ = {isa = PBXBuildFile; fileRef = A7CD5A0719901D1900A0FAE8 /* Start_button_red.png */; };
 		B37AE5321992FA9B006EFBB0 /* beep.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B37AE5311992FA9B006EFBB0 /* beep.mp3 */; };
-		B9557DF21995A1EC002F5B1F /* bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B9557DF11995A1EC002F5B1F /* bg.jpg */; };
+		B91D328D19995DC1001118B9 /* bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B91D328C19995DC1001118B9 /* bg.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,7 +68,7 @@
 		A7CD5A0619901D1900A0FAE8 /* DSCN1463.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = DSCN1463.jpg; sourceTree = "<group>"; };
 		A7CD5A0719901D1900A0FAE8 /* Start_button_red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Start_button_red.png; sourceTree = "<group>"; };
 		B37AE5311992FA9B006EFBB0 /* beep.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = beep.mp3; path = sons/beep.mp3; sourceTree = "<group>"; };
-		B9557DF11995A1EC002F5B1F /* bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = bg.jpg; path = "../../Pomodoro_img'/bg.jpg"; sourceTree = "<group>"; };
+		B91D328C19995DC1001118B9 /* bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = bg.jpg; path = ../bg.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,7 +138,6 @@
 				A7CD59D9199011E400A0FAE8 /* AppDelegate.h */,
 				A7CD59DA199011E400A0FAE8 /* AppDelegate.m */,
 				A7CD59DC199011E400A0FAE8 /* MainMenu.xib */,
-				B9557DF11995A1EC002F5B1F /* bg.jpg */,
 				A7CD59DF199011E400A0FAE8 /* Images.xcassets */,
 				A7CD59CE199011E400A0FAE8 /* Supporting Files */,
 				A7CD59FB1990146300A0FAE8 /* Pomodoro.h */,
@@ -185,6 +184,7 @@
 		A7CD5A0419901D1900A0FAE8 /* img */ = {
 			isa = PBXGroup;
 			children = (
+				B91D328C19995DC1001118B9 /* bg.jpg */,
 				A7CD5A0519901D1900A0FAE8 /* background-p.jpg */,
 				A7CD5A0619901D1900A0FAE8 /* DSCN1463.jpg */,
 				A7CD5A0719901D1900A0FAE8 /* Start_button_red.png */,
@@ -271,8 +271,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B9557DF21995A1EC002F5B1F /* bg.jpg in Resources */,
 				A7CD59D2199011E400A0FAE8 /* InfoPlist.strings in Resources */,
+				B91D328D19995DC1001118B9 /* bg.jpg in Resources */,
 				A7CD59E0199011E400A0FAE8 /* Images.xcassets in Resources */,
 				B37AE5321992FA9B006EFBB0 /* beep.mp3 in Resources */,
 				A7CD59D8199011E400A0FAE8 /* Credits.rtf in Resources */,
