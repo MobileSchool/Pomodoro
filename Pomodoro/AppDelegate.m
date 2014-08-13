@@ -21,7 +21,6 @@ Alarme *alarme;
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     // Insert code here to initialize your application
-    
 }
 
 - (IBAction)push_start:(id)sender { //quando o botao start eh apertado...
