@@ -9,18 +9,25 @@
 #import "AppDelegate.h"
 #import "Alarme.h"
 #import "Config.h"
+#import "Pomodoro.h"
 
-int second=59;
-int minute=24;
+
+int contadorPomodoros = 0;
+int trocaTrabalhoDescanso = 1;
+int second = 0;
+int minute;
 bool started=FALSE;
-Alarme *alarme;
+
 
 @implementation AppDelegate
 
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    // Insert code here to initialize your application
+    [Config restauraPadrao];
+    self.rodada = [[Rodada alloc]init];
+    minute = [[self.rodada.pomodoros[0] trabalho] intValue];
+    [_textTimer setStringValue:[NSString stringWithFormat:@"%0i : 00",minute]];
 }
 
 - (IBAction)push_start:(id)sender { //quando o botao start eh apertado...
@@ -28,7 +35,6 @@ Alarme *alarme;
         started=TRUE; //define strated como true
         [_startButton setEnabled: NO];//desabilita botao start
         [self tick:nil]; //chama funcao tick
-        alarme = [[Alarme alloc] init]; // Alocação e iniciação da instancia de alarme
     }
 
 }
@@ -49,12 +55,20 @@ Alarme *alarme;
         [self performSelector:@selector(tick:) withObject:nil afterDelay:1.0];//chama a funcao tick apos 1 segundo
         
 		if(minute == 0 && second == 0){//se minuto e segundo for 0...
-            [_textTimer setStringValue:@"25 : 00"];//muda a string textimer para "acabou"
+            if (trocaTrabalhoDescanso == 1) {
+                --trocaTrabalhoDescanso;
+                minute = [[self.rodada.pomodoros[contadorPomodoros] descanso] intValue];
+                if (contadorPomodoros==3) {
+                    contadorPomodoros = 0;
+                }else{++contadorPomodoros;}
+            }else{
+                ++trocaTrabalhoDescanso;
+                minute = [[self.rodada.pomodoros[contadorPomodoros] trabalho] intValue];
+            }
+            [_textTimer setStringValue:[NSString stringWithFormat:@"%0i : 00",minute]];//muda a string textimer para "acabou"
             started = FALSE;//define started como falso
             [_startButton setEnabled: YES];//abilita botao start
-            second=0;//atribui o valor 59 para segundo
-            minute=25;//atribui o valor 24 para minuto
-            [alarme tocar]; // Inicia os beeps
+            [Alarme tocar]; // Inicia os beeps
         }
 		
 		second-=1;//decrescenta 1 segundo

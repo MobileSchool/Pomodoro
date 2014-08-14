@@ -10,4 +10,15 @@
 
 @implementation Pomodoro
 
+
+- (instancetype)initComTempoDeTrabalho: (id) tempoTrabalho
+                      eTempoDeDescanso: (id) tempoDescanso
+{
+    self = [super init];
+    if (self) {
+        self.trabalho = tempoTrabalho;
+        self.descanso = tempoDescanso;
+    }
+    return self;
+}
 @end

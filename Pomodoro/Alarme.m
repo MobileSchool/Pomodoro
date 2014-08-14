@@ -10,30 +10,16 @@
 
 @implementation Alarme
 
-
-// Método de inicialização para colocar endereço de arquivo na variavel beep
-
-- (instancetype)init
-{
-
-    self = [super init];
-// Pegando URL do arquivo beep
-    NSURL *url = [[NSBundle mainBundle] URLForResource:@"beep" withExtension:@"mp3"];
-    if (self) {
-// Atribuindo endereço a beep
-        self.beep = [[NSSound alloc] initWithContentsOfURL:url byReference:YES];
-    }
-    return self;
-}
-
 // Método que ativa o alarme
 
-- (void)tocar{
-    
-    if (self.beep) {
-        [self.beep play];
++ (void)tocar{
+    // Pegando URL do arquivo beep
+    NSURL *url = [[NSBundle mainBundle] URLForResource:@"beep" withExtension:@"mp3"];
+    // Atribuindo endereço a beep
+    NSSound * beep = [[NSSound alloc] initWithContentsOfURL:url byReference:YES];
+    if (beep) {
+        [beep play];
     }
-    
 }
 
 

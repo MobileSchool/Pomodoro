@@ -12,9 +12,10 @@
 
 @interface Pomodoro : NSObject
 
-@property Time *trabalho;
-@property Time *descanso;
+@property id trabalho;
+@property id descanso;
 
-@property Alarme *alarme;
+- (instancetype)initComTempoDeTrabalho: (id) tempoTrabalho
+                      eTempoDeDescanso: (id) tempoDescanso;
 
 @end
