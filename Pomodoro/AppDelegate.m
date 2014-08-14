@@ -24,10 +24,9 @@ bool started=FALSE;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    [Config restauraPadrao];
-    self.rodada = [[Rodada alloc]init];
-    minute = [[self.rodada.pomodoros[0] trabalho] intValue];
-    [_textTimer setStringValue:[NSString stringWithFormat:@"%0i : 00",minute]];
+    self.rodada = [[Rodada alloc]init]; //Iniciando objeto de classe Rodada
+    minute = [[self.rodada.pomodoros[0] trabalho] intValue]; // colocando valor de trabalho do primeiro pomodoro da rodada
+    [_textTimer setStringValue:[NSString stringWithFormat:@"%0i : 00",minute]]; // colocando minuto na view
 }
 
 - (IBAction)push_start:(id)sender { //quando o botao start eh apertado...
@@ -55,6 +54,7 @@ bool started=FALSE;
         [self performSelector:@selector(tick:) withObject:nil afterDelay:1.0];//chama a funcao tick apos 1 segundo
         
 		if(minute == 0 && second == 0){//se minuto e segundo for 0...
+            //Lógica de variação de pomodoros e tempo de trabalho e descanso
             if (trocaTrabalhoDescanso == 1) {
                 --trocaTrabalhoDescanso;
                 minute = [[self.rodada.pomodoros[contadorPomodoros] descanso] intValue];
