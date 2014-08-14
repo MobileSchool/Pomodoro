@@ -24,9 +24,15 @@ bool started=FALSE;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+    
+    
     self.rodada = [[Rodada alloc]init]; //Iniciando objeto de classe Rodada
     minute = [[self.rodada.pomodoros[0] trabalho] intValue]; // colocando valor de trabalho do primeiro pomodoro da rodada
-    [_textTimer setStringValue:[NSString stringWithFormat:@"%0i : 00",minute]]; // colocando minuto na view
+    if (minute<10) {
+        [_textTimer setStringValue:[NSString stringWithFormat:@"0%i : 00",minute]];
+    }else{
+        [_textTimer setStringValue:[NSString stringWithFormat:@"%i : 00",minute]]; // colocando minuto na view
+    }
 }
 
 - (IBAction)push_start:(id)sender { //quando o botao start eh apertado...
@@ -60,15 +66,24 @@ bool started=FALSE;
                 minute = [[self.rodada.pomodoros[contadorPomodoros] descanso] intValue];
                 if (contadorPomodoros==3) {
                     contadorPomodoros = 0;
+                    [_startButton setEnabled: YES];//abilita botao start
+                    started=FALSE; //define strated como true
                 }else{++contadorPomodoros;}
             }else{
                 ++trocaTrabalhoDescanso;
                 minute = [[self.rodada.pomodoros[contadorPomodoros] trabalho] intValue];
             }
-            [_textTimer setStringValue:[NSString stringWithFormat:@"%0i : 00",minute]];//muda a string textimer para "acabou"
-            started = FALSE;//define started como falso
-            [_startButton setEnabled: YES];//abilita botao start
+            
+            if (minute<10) {
+                [_textTimer setStringValue:[NSString stringWithFormat:@"0%i : 00",minute]];
+            }else{
+                [_textTimer setStringValue:[NSString stringWithFormat:@"%i : 00",minute]]; // colocando minuto na view
+            }
+           
+            //started = FALSE;//define started como falso
+            
             [Alarme tocar]; // Inicia os beeps
+            
         }
 		
 		second-=1;//decrescenta 1 segundo
