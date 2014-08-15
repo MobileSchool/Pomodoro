@@ -36,7 +36,19 @@
 
 
 - (IBAction)salvar:(id)sender {
-    [Config alterarTempoTrabalho1:self.tempoTrabalho1 tempoTrabalho2: self.tempoTrabalho2 tempoTrabalho3:self.tempoTrabalho3 tempoTrabalho4:self.tempoTrabalho4 tempoDescanso1:self.tempoDescanso1 tempoDescanso2:self.tempoDescanso2 tempoDescanso3:self.tempoDescanso3 tempoDescanso4:self.tempoDescanso4];
+    
+    NSNumber *trab1 = [NSNumber numberWithInt: [self.tempoTrabalho1 intValue]];
+    NSNumber *trab2 = [NSNumber numberWithInt: [self.tempoTrabalho2 intValue]];
+    NSNumber *trab3 = [NSNumber numberWithInt: [self.tempoTrabalho3 intValue]];
+    NSNumber *trab4 = [NSNumber numberWithInt: [self.tempoTrabalho4 intValue]];
+    
+    NSNumber *desc1 = [NSNumber numberWithInt: [self.tempoDescanso1 intValue]];
+    NSNumber *desc2 = [NSNumber numberWithInt: [self.tempoDescanso2 intValue]];
+    NSNumber *desc3 = [NSNumber numberWithInt: [self.tempoDescanso3 intValue]];
+    NSNumber *desc4 = [NSNumber numberWithInt: [self.tempoDescanso4 intValue]];
+                       
+    [Config alterarTempoTrabalho1:trab1 tempoTrabalho2:trab2 tempoTrabalho3:trab3 tempoTrabalho4:trab4 tempoDescanso1:desc1 tempoDescanso2:desc2 tempoDescanso3:desc3 tempoDescanso4:desc4];
+   
 }
 
 - (IBAction)restaurarPadrao:(id)sender {
