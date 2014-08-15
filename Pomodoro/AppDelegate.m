@@ -99,4 +99,11 @@ bool started=FALSE;
 
 
 
+- (IBAction)SelectConfig:(id)sender {
+    if (!_Janela){
+        _Janela =  [[JanelaConfigWindowController alloc] initWithWindowNibName:@"JanelaConfigWindowController"];
+    }
+    [_Janela showWindow:self];
+    
+}
 @end

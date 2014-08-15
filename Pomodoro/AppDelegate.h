@@ -8,6 +8,8 @@
 
 #import <Cocoa/Cocoa.h>
 #import "Rodada.h"
+#import "JanelaConfigWindowController.h"
+
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 
@@ -19,4 +21,8 @@
 
 - (IBAction)push_start:(id)sender;
 - (void)tick:(id)sender;
+
+@property JanelaConfigWindowController *Janela;
+- (IBAction)SelectConfig:(id)sender;
+
 @end
