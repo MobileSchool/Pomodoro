@@ -84,6 +84,7 @@
 		B9A768B7199C04EE00320FC4 /* custom.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = custom.json; sourceTree = "<group>"; };
 		B9A768B9199C060000320FC4 /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 		B9A768BA199C060000320FC4 /* Config.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Config.m; sourceTree = "<group>"; };
+		E34D4F9A19A28BF7004BE314 /* PomodoroState.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PomodoroState.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +150,7 @@
 		A7CD59CD199011E400A0FAE8 /* Pomodoro */ = {
 			isa = PBXGroup;
 			children = (
+				E34D4F9A19A28BF7004BE314 /* PomodoroState.h */,
 				A7CD5A0419901D1900A0FAE8 /* img */,
 				A7CD59D9199011E400A0FAE8 /* AppDelegate.h */,
 				A7CD59DA199011E400A0FAE8 /* AppDelegate.m */,

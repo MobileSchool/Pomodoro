@@ -12,92 +12,87 @@
 #import "Pomodoro.h"
 
 
-int contadorPomodoros = 0;
-int trocaTrabalhoDescanso = 1;
-int second = 0;
-int minute;
-bool started=FALSE;
-
-
 @implementation AppDelegate
 
+int contadorPomodoros = 0;
+int trocaTrabalhoDescanso = 1;
+
+Pomodoro *pomodoro;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    
-    
     self.rodada = [[Rodada alloc]init]; //Iniciando objeto de classe Rodada
-    minute = [[self.rodada.pomodoros[0] trabalho] intValue]; // colocando valor de trabalho do primeiro pomodoro da rodada
-    if (minute<10) {
-        [_textTimer setStringValue:[NSString stringWithFormat:@"0%i : 00",minute]];
+//    minute = [[self.rodada.pomodoros[0] trabalho] intValue]; // colocando valor de trabalho do primeiro pomodoro da rodada
+//    if (minute<10) {
+//        [_textTimer setStringValue:[NSString stringWithFormat:@"0%i : 00",minute]];
+//    }else{
+//        [_textTimer setStringValue:[NSString stringWithFormat:@"%i : 00",minute]]; // colocando minuto na view
+//    }
+}
+
+- (IBAction)push_start:(id)sender { //quando o
+    [self updateButtonState:NO];
+
+    pomodoro = [self.rodada next];
+    [pomodoro start];
+    [self execute: pomodoro];
+}
+
+- (void) updateButtonState:(BOOL) state {
+    [_startButton setEnabled:state];
+    [_stopButton setEnabled:!state];
+}
+
+- (void) execute: (Pomodoro *) pomodoro {
+    [pomodoro pulse];
+    [self updateView: pomodoro];
+    switch ([pomodoro state]) {
+        case ON_PULSE_WORKTIME:
+        case ON_PULSE_BREAKTIME:
+            [self performSelector:@selector(execute:) withObject:pomodoro afterDelay:1.0];
+            break;
+        case STOPPED:
+            [self updateButtonState:YES];
+            break;
+        // transição entre o WT e o BT
+            // falta modificar as transições de estado\
+            // do pomodoro
+            // algum método que mude de
+            // WT -> CH -> BT -> END
+            // Atualmente esta WT -> BT ->END
+        case CHANGE_WORKTIME_BREAKTIME:
+            [Alarme tocar];
+            [self performSelector:@selector(execute:) withObject:pomodoro afterDelay:1.0];
+            break;
+        case END:
+            [self updateButtonState:YES];
+            [Alarme tocar];
+            break;
+        default:
+            break;
+    }
+}
+
+- (NSString*) formatNSStringToTime: (int) time {
+    NSString * temp;
+    if(time < 10){
+        temp = [NSString stringWithFormat:@"0%i",time];
     }else{
-        [_textTimer setStringValue:[NSString stringWithFormat:@"%i : 00",minute]]; // colocando minuto na view
-    }
-}
-
-- (IBAction)push_start:(id)sender { //quando o botao start eh apertado...
-    if (!started) { //se started eh falso..
-        started=TRUE; //define strated como true
-        [_startButton setEnabled: NO];//desabilita botao start
-        [self tick:nil]; //chama funcao tick
-    }
-
-}
-
-
-- (void) tick:(id)sender{ //funcao tick
-    if(started){ // se started for true...
-        NSString *sec=[NSString stringWithFormat:@"%i", second]; //declara sec com o valor de second
-        if(second<10){ //se second for menor que 10
-            sec = [NSString stringWithFormat:@"0%i", second]; // atribui o valor de second com zero na frente para sec
-        }
-        NSString *min=[NSString stringWithFormat:@"%i", minute];//declara min com o valor de minute
-        if(minute<10){//se minute for menor que 10
-            min = [NSString stringWithFormat:@"0%i", minute]; //atribui o valor de minute com zero na frente para sec
-        }
-        NSString *time=[NSString stringWithFormat:@"%@ : %@", min, sec];//declara time com o valor de min e sec
-        [_textTimer setStringValue:time];// muda o valor da string textTimer para time
-        [self performSelector:@selector(tick:) withObject:nil afterDelay:1.0];//chama a funcao tick apos 1 segundo
-        
-		if(minute == 0 && second == 0){//se minuto e segundo for 0...
-            //Lógica de variação de pomodoros e tempo de trabalho e descanso
-            if (trocaTrabalhoDescanso == 1) {
-                --trocaTrabalhoDescanso;
-                minute = [[self.rodada.pomodoros[contadorPomodoros] descanso] intValue];
-                if (contadorPomodoros==3) {
-                    contadorPomodoros = 0;
-                    [_startButton setEnabled: YES];//abilita botao start
-                    started=FALSE; //define strated como true
-                }else{++contadorPomodoros;}
-            }else{
-                ++trocaTrabalhoDescanso;
-                minute = [[self.rodada.pomodoros[contadorPomodoros] trabalho] intValue];
-            }
-            
-            if (minute<10) {
-                [_textTimer setStringValue:[NSString stringWithFormat:@"0%i : 00",minute]];
-            }else{
-                [_textTimer setStringValue:[NSString stringWithFormat:@"%i : 00",minute]]; // colocando minuto na view
-            }
-           
-            //started = FALSE;//define started como falso
-            
-            [Alarme tocar]; // Inicia os beeps
-            
-        }
-		
-		second-=1;//decrescenta 1 segundo
-
-
-        }
-        if(second<0){//se segundo menor que 0
-            second=59;//atribui o valor 59 para segundo
-            minute-=1;//decrescenta 1 minuto
-        }
+        temp = [NSString stringWithFormat:@"%i",time];
         
     }
+    return temp;
+}
 
+- (void) updateView: (Pomodoro *) pomodoro {
+    NSString *strMinute, *strSecond, *strTime;
+    strMinute = [self formatNSStringToTime:[pomodoro minute]];
+    strSecond = [self formatNSStringToTime:[pomodoro second]];
+    strTime = [NSString stringWithFormat:@"%@ : %@",strMinute,strSecond];
 
+    [_textTimer setStringValue:strTime];
+    
+}
 
 - (IBAction)SelectConfig:(id)sender {
     if (!_Janela){
@@ -105,5 +100,9 @@ bool started=FALSE;
     }
     [_Janela showWindow:self];
     
+}
+
+- (IBAction)push_stop:(id)sender {
+    [pomodoro forceStop];
 }
 @end

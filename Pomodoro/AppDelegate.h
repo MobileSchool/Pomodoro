@@ -13,6 +13,7 @@
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 
+@property (weak) IBOutlet NSButton *stopButton;
 
 @property (strong) IBOutlet NSButton *startButton;
 @property (assign) IBOutlet NSWindow *window;
@@ -20,9 +21,10 @@
 @property Rodada* rodada;
 
 - (IBAction)push_start:(id)sender;
-- (void)tick:(id)sender;
+//- (void)tick:(id)sender;
 
 @property JanelaConfigWindowController *Janela;
 - (IBAction)SelectConfig:(id)sender;
+- (IBAction)push_stop:(id)sender;
 
 @end

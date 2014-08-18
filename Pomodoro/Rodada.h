@@ -7,12 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Pomodoro.h"
 
 @interface Rodada : NSObject
 
 @property NSMutableArray* pomodoros;
 
 - (void)atualizarPomodoros;
+- (Pomodoro*) next;
 
 
 @end

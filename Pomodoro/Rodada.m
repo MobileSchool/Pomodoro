@@ -7,7 +7,6 @@
 //
 
 #import "Rodada.h"
-#import "Pomodoro.h"
 
 @implementation Rodada
 
@@ -20,6 +19,12 @@
         
     }
     return self;
+}
+
+- (Pomodoro*) next {
+    Pomodoro *temp = [[Pomodoro alloc] init];
+    [temp workTime:1 breakTime:1];
+    return temp;
 }
 
 - (void)atualizarPomodoros{

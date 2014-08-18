@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "Time.h"
 #import "Alarme.h"
+#import "PomodoroState.h"
 
 @interface Pomodoro : NSObject
 
@@ -17,5 +18,13 @@
 
 - (instancetype)initComTempoDeTrabalho: (id) tempoTrabalho
                       eTempoDeDescanso: (id) tempoDescanso;
+
+- (void) workTime: (int) workTime breakTime: (int) breakTime;
+- (void) pulse;
+- (enum PomodoroState) state;
+- (int) minute;
+- (int) second;
+- (void) forceStop;
+- (void) start;
 
 @end
