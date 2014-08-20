@@ -2,20 +2,23 @@
 //  Pomodoro.m
 //  Pomodoro
 //
-//  Created by Leonardo Ataide Minora on 04/08/14.
+//  Created: Leonardo Minora on 04/08/14
+//  Modified: Leonardo Minora on 20/08/2014
 //  Copyright (c) 2014 Mobile School at IFRN-CNAT. All rights reserved.
 //
 
 #import "Pomodoro.h"
 
-@implementation Pomodoro
-
-int second = 0;
-int minute;
-int time_work;
-int time_break;
-BOOL stopped = YES;
-enum PomodoroState _state;
+@implementation Pomodoro {
+// atributos privados ficam entre chaves
+    // e não tem atribuição de valores
+    int second;
+    int minute;
+    int worktime;
+    int breaktime;
+    BOOL stopped;
+    enum PomodoroState state;
+}
 
 - (instancetype)initComTempoDeTrabalho: (id) tempoTrabalho
                       eTempoDeDescanso: (id) tempoDescanso
@@ -24,33 +27,48 @@ enum PomodoroState _state;
     if (self) {
         self.trabalho = tempoTrabalho;
         self.descanso = tempoDescanso;
+        state = NEW;
+        stopped = YES;
     }
     return self;
 }
 
-- (void) workTime: (int) workTime breakTime: (int) breakTime {
-    time_break = breakTime;
-    time_work = workTime;
-    [self start];
+- (instancetype) initWithWorktime:(int)wTime andBreaktime:(int)bTime {
+    self = [super init];
+    if (self) {
+        worktime = wTime;
+        breaktime = bTime;
+        stopped = NEW;
+        stopped = YES;
+    }
+    return self;
+}
+
+- (BOOL)pulseRegressiveTime {
+    second--;
+    if(second < 0){
+        second = 59;
+        minute--;
+    }
+    return (second == 0 && minute == 0);
 }
 
 - (void) pulse {
-    if (_state == ON_PULSE_WORKTIME) {
-        second--;
-        if(second < 0){
-            second = 59;
-            minute--;
-        }else if(second == 0 && minute == 0){
-            [self changeTime];
-        }
-    }else if (_state == ON_PULSE_BREAKTIME){
-        second--;
-        if(second < 0){
-            second = 59;
-            minute--;
-        }else if(second == 0 && minute == 0){
-            [self finish];
-        }
+    switch (state) {
+        case ON_PULSE_BREAKTIME:
+            if ([self pulseRegressiveTime]) {
+                [self finish];
+            }
+            break;
+        case ON_PULSE_WORKTIME:
+            if ([self pulseRegressiveTime]) {
+                [self changeTimeFromWorkToBreak];
+            }
+            break;
+        case CHANGE_WORKTIME_BREAKTIME:
+            [self startBreaktime];
+        default:
+            break;
     }
 }
 
@@ -63,27 +81,31 @@ enum PomodoroState _state;
 }
 
 - (enum PomodoroState) state {
-    return _state;
+    return state;
 }
 
 - (void) forceStop {
-    _state = STOPPED;
+    state = STOPPED;
 }
 
 - (void) finish {
-    _state = END;
+    state = END;
 }
 
 - (void) start {
-    minute = time_work;
+    minute = worktime;
     second = 0;
-    _state = ON_PULSE_WORKTIME;
+    state = ON_PULSE_WORKTIME;
 }
-// changeTimeFromWorkToBreak
-- (void) changeTime {
-    minute = time_break;
+
+- (void) startBreaktime {
+    minute = breaktime;
     second = 0;
-    _state = ON_PULSE_BREAKTIME;
+    state = ON_PULSE_BREAKTIME;
+}
+
+- (void) changeTimeFromWorkToBreak {
+    state = CHANGE_WORKTIME_BREAKTIME;
 }
 
 @end

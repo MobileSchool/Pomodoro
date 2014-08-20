@@ -22,8 +22,7 @@
 }
 
 - (Pomodoro*) next {
-    Pomodoro *temp = [[Pomodoro alloc] init];
-    [temp workTime:1 breakTime:1];
+    Pomodoro *temp = [[Pomodoro alloc] initWithWorktime: 1 andBreaktime: 1];
     return temp;
 }
 

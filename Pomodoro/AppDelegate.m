@@ -54,12 +54,6 @@ Pomodoro *pomodoro;
         case STOPPED:
             [self updateButtonState:YES];
             break;
-        // transição entre o WT e o BT
-            // falta modificar as transições de estado\
-            // do pomodoro
-            // algum método que mude de
-            // WT -> CH -> BT -> END
-            // Atualmente esta WT -> BT ->END
         case CHANGE_WORKTIME_BREAKTIME:
             [Alarme tocar];
             [self performSelector:@selector(execute:) withObject:pomodoro afterDelay:1.0];
@@ -73,7 +67,13 @@ Pomodoro *pomodoro;
     }
 }
 
-- (NSString*) formatNSStringToTime: (int) time {
+- (NSString*)formtatFromPomodoroToStringWithMinute: (Pomodoro*)p {
+    NSString *strMinute = [self formatFromTimeToString:[p minute]];
+    NSString *strSecond = [self formatFromTimeToString:[p second]];
+    return [NSString stringWithFormat:@"%@ : %@",strMinute,strSecond];
+}
+
+- (NSString*) formatFromTimeToString: (int) time {
     NSString * temp;
     if(time < 10){
         temp = [NSString stringWithFormat:@"0%i",time];
@@ -85,10 +85,7 @@ Pomodoro *pomodoro;
 }
 
 - (void) updateView: (Pomodoro *) pomodoro {
-    NSString *strMinute, *strSecond, *strTime;
-    strMinute = [self formatNSStringToTime:[pomodoro minute]];
-    strSecond = [self formatNSStringToTime:[pomodoro second]];
-    strTime = [NSString stringWithFormat:@"%@ : %@",strMinute,strSecond];
+    NSString *strTime = [self formtatFromPomodoroToStringWithMinute: pomodoro];
 
     [_textTimer setStringValue:strTime];
     
