@@ -10,13 +10,12 @@
 
 @interface Config : NSObject
 
-+ (void)restauraPadrao;
-+ (void)alterarTempoTrabalho1: (id) tempoTrabalho1
-               tempoTrabalho2: (id) tempoTrabalho2
-               tempoTrabalho3: (id) tempoTrabalho3
-               tempoTrabalho4: (id) tempoTrabalho4
-               tempoDescanso1: (id) tempoDescanso1
-               tempoDescanso2: (id) tempoDescanso2
-               tempoDescanso3: (id) tempoDescanso3
-               tempoDescanso4: (id) tempoDescanso4;
++ (void)restoreCustom;
+
++ (void)changeWorkTime: (id) workTime
+            shortBreak: (id) shortBreak
+             longBreak: (id) longBreak;
+
+
+
 @end

@@ -29,9 +29,8 @@
 		B37AE5321992FA9B006EFBB0 /* beep.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B37AE5311992FA9B006EFBB0 /* beep.mp3 */; };
 		B3ADF5F5199C37830026953F /* Rodada.m in Sources */ = {isa = PBXBuildFile; fileRef = B3ADF5F4199C37830026953F /* Rodada.m */; };
 		B91D328D19995DC1001118B9 /* bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B91D328C19995DC1001118B9 /* bg.jpg */; };
-		B9A768B6199C044600320FC4 /* default.json in Resources */ = {isa = PBXBuildFile; fileRef = B9A768B5199C044600320FC4 /* default.json */; };
-		B9A768B8199C04EE00320FC4 /* custom.json in Resources */ = {isa = PBXBuildFile; fileRef = B9A768B7199C04EE00320FC4 /* custom.json */; };
 		B9A768BB199C060000320FC4 /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A768BA199C060000320FC4 /* Config.m */; };
+		E3F3142F19A5081200A365FA /* timeConfig.json in Resources */ = {isa = PBXBuildFile; fileRef = E3F3142E19A5081200A365FA /* timeConfig.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,11 +79,10 @@
 		B3ADF5F3199C37830026953F /* Rodada.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rodada.h; sourceTree = "<group>"; };
 		B3ADF5F4199C37830026953F /* Rodada.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Rodada.m; sourceTree = "<group>"; };
 		B91D328C19995DC1001118B9 /* bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = bg.jpg; path = ../bg.jpg; sourceTree = "<group>"; };
-		B9A768B5199C044600320FC4 /* default.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = default.json; sourceTree = "<group>"; };
-		B9A768B7199C04EE00320FC4 /* custom.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = custom.json; sourceTree = "<group>"; };
 		B9A768B9199C060000320FC4 /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 		B9A768BA199C060000320FC4 /* Config.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Config.m; sourceTree = "<group>"; };
 		E34D4F9A19A28BF7004BE314 /* PomodoroState.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PomodoroState.h; sourceTree = "<group>"; };
+		E3F3142E19A5081200A365FA /* timeConfig.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = timeConfig.json; path = ../timeConfig.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,12 +148,11 @@
 		A7CD59CD199011E400A0FAE8 /* Pomodoro */ = {
 			isa = PBXGroup;
 			children = (
+				E3F3142E19A5081200A365FA /* timeConfig.json */,
 				E34D4F9A19A28BF7004BE314 /* PomodoroState.h */,
 				A7CD5A0419901D1900A0FAE8 /* img */,
 				A7CD59D9199011E400A0FAE8 /* AppDelegate.h */,
 				A7CD59DA199011E400A0FAE8 /* AppDelegate.m */,
-				B9A768B5199C044600320FC4 /* default.json */,
-				B9A768B7199C04EE00320FC4 /* custom.json */,
 				A7CD59DC199011E400A0FAE8 /* MainMenu.xib */,
 				A7CD59DF199011E400A0FAE8 /* Images.xcassets */,
 				A7CD59CE199011E400A0FAE8 /* Supporting Files */,
@@ -298,12 +295,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				820E650C199E83A10044042F /* JanelaConfigWindowController.xib in Resources */,
+				E3F3142F19A5081200A365FA /* timeConfig.json in Resources */,
 				A7CD59D2199011E400A0FAE8 /* InfoPlist.strings in Resources */,
-				B9A768B6199C044600320FC4 /* default.json in Resources */,
 				B91D328D19995DC1001118B9 /* bg.jpg in Resources */,
 				A7CD59E0199011E400A0FAE8 /* Images.xcassets in Resources */,
 				B37AE5321992FA9B006EFBB0 /* beep.mp3 in Resources */,
-				B9A768B8199C04EE00320FC4 /* custom.json in Resources */,
 				A7CD59D8199011E400A0FAE8 /* Credits.rtf in Resources */,
 				A7CD5A0A19901D1900A0FAE8 /* Start_button_red.png in Resources */,
 				A7CD5A0819901D1900A0FAE8 /* background-p.jpg in Resources */,

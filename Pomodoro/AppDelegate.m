@@ -21,6 +21,7 @@ Pomodoro *pomodoro;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+
     self.rodada = [[Rodada alloc]init]; //Iniciando objeto de classe Rodada
 //    minute = [[self.rodada.pomodoros[0] trabalho] intValue]; // colocando valor de trabalho do primeiro pomodoro da rodada
 //    if (minute<10) {

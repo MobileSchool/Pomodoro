@@ -47,11 +47,11 @@
     NSNumber *desc3 = [NSNumber numberWithInt: [self.tempoDescanso3 intValue]];
     NSNumber *desc4 = [NSNumber numberWithInt: [self.tempoDescanso4 intValue]];
                        
-    [Config alterarTempoTrabalho1:trab1 tempoTrabalho2:trab2 tempoTrabalho3:trab3 tempoTrabalho4:trab4 tempoDescanso1:desc1 tempoDescanso2:desc2 tempoDescanso3:desc3 tempoDescanso4:desc4];
+    [Config changeWorkTime:trab1 shortBreak:desc1 longBreak:desc4];
    
 }
 
 - (IBAction)restaurarPadrao:(id)sender {
-    [Config restauraPadrao];
+    [Config restoreCustom];
 }
 @end

@@ -1,0 +1,9 @@
+{
+        "workTime": 25,
+        "shortBreak": 5,
+        "longBreak": 20,
+        "customWorkTime":2,
+        "customShortBreak":2,
+        "customLongBreak":2
+}
+
