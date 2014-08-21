@@ -21,6 +21,8 @@
 
 int contadorPomodoros = 0;
 int trocaTrabalhoDescanso = 1;
+NSString * workBgImage = @"bg.jpg";
+NSString * restBgImage = @"background-p.jpg";
 
 Pomodoro *pomodoro;
 
@@ -39,6 +41,9 @@ Pomodoro *pomodoro;
 //    }else{
 //        [_textTimer setStringValue:[NSString stringWithFormat:@"%i : 00",minute]]; // colocando minuto na view
 //    }
+    
+    _window.backgroundColor = [NSColor colorWithPatternImage:[NSImage imageNamed:workBgImage]];
+    
 }
 
 - (IBAction)push_start:(id)sender { //quando o
@@ -61,6 +66,7 @@ Pomodoro *pomodoro;
         case ON_PULSE_WORKTIME:
         case ON_PULSE_BREAKTIME:
             [self performSelector:@selector(execute:) withObject:pomodoro afterDelay:1.0];
+            
             break;
         case STOPPED:
             [self updateButtonState:YES];
@@ -68,12 +74,15 @@ Pomodoro *pomodoro;
         case CHANGE_WORKTIME_BREAKTIME:
             [Alarme tocar];
             [self performSelector:@selector(execute:) withObject:pomodoro afterDelay:1.0];
-            break;
+            [self swapImage];
+             break;
         case END:
             [self updateButtonState:YES];
             [Alarme tocar];
+            
             break;
         default:
+            
             break;
     }
 }
@@ -101,6 +110,9 @@ Pomodoro *pomodoro;
 
     [_textTimer setStringValue:strTime];
     
+    
+    
+    
 }
 
 - (IBAction)SelectConfig:(id)sender {
@@ -113,5 +125,12 @@ Pomodoro *pomodoro;
 
 - (IBAction)push_stop:(id)sender {
     [pomodoro forceStop];
+}
+
+- (void) swapImage {
+    if (!CHANGE_WORKTIME_BREAKTIME)
+        _window.backgroundColor = [NSColor colorWithPatternImage:[NSImage imageNamed:restBgImage]];
+    else _window.backgroundColor = [NSColor colorWithPatternImage:[NSImage imageNamed:workBgImage]];
+    
 }
 @end
