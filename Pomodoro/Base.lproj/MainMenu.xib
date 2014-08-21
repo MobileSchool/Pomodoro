@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5056" systemVersion="14A299l" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="5056"/>
     </dependencies>
@@ -13,6 +13,7 @@
         <customObject id="-3" userLabel="Application"/>
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate">
             <connections>
+                <outlet property="menu" destination="6jd-I9-p4C" id="qrB-99-dPA"/>
                 <outlet property="startButton" destination="RMs-aV-zCR" id="0OV-4C-2HM"/>
                 <outlet property="stopButton" destination="yth-yU-PKD" id="2gT-eg-uV4"/>
                 <outlet property="textTimer" destination="3Eg-GQ-G3v" id="XQY-rK-HlX"/>
@@ -20,43 +21,11 @@
             </connections>
         </customObject>
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
-        <menu title="Main Menu" systemMenu="main" id="AYu-sK-qS6">
-            <items>
-                <menuItem title="Pomodoro" id="1Xt-HY-uBw">
-                    <modifierMask key="keyEquivalentModifierMask"/>
-                    <menu key="submenu" title="Pomodoro" systemMenu="apple" id="uQy-DD-JDr">
-                        <items>
-                            <menuItem title="About (MS) Pomodoro" id="5kV-Vb-QxS">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="orderFrontStandardAboutPanel:" target="-1" id="Exp-CZ-Vem"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem isSeparatorItem="YES" id="VOq-y0-SEH"/>
-                            <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW">
-                                <connections>
-                                    <action selector="SelectConfig:" target="Voe-Tx-rLC" id="CMh-ve-0SW"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem isSeparatorItem="YES" id="4je-JR-u6R"/>
-                            <menuItem title="Quit" keyEquivalent="q" id="4sb-4s-VLi">
-                                <connections>
-                                    <action selector="terminate:" target="-1" id="Te7-pn-YzF"/>
-                                </connections>
-                            </menuItem>
-                        </items>
-                    </menu>
-                </menuItem>
-                <menuItem title="Format" id="jxT-CU-nIS">
-                    <modifierMask key="keyEquivalentModifierMask"/>
-                </menuItem>
-            </items>
-        </menu>
         <window title="Pomodoro Techinique" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="335" y="390" width="234" height="298"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1058"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1057"/>
             <view key="contentView" id="EiT-Mj-1SZ">
                 <rect key="frame" x="0.0" y="0.0" width="234" height="298"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -100,6 +69,21 @@
                 </subviews>
             </view>
         </window>
+        <menu id="6jd-I9-p4C">
+            <items>
+                <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW">
+                    <connections>
+                        <action selector="SelectConfig:" target="Voe-Tx-rLC" id="CMh-ve-0SW"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Quit Pomodoro" id="vX7-i6-iPq">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="terminate:" target="-1" id="JYb-lG-Kea"/>
+                    </connections>
+                </menuItem>
+            </items>
+        </menu>
     </objects>
     <resources>
         <image name="bg" width="264" height="330"/>

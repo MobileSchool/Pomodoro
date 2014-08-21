@@ -27,4 +27,11 @@
 - (IBAction)SelectConfig:(id)sender;
 - (IBAction)push_stop:(id)sender;
 
+
+
+
+
+//menu bar
+@property (weak) IBOutlet NSMenu *menu;
+
 @end

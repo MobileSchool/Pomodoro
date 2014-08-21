@@ -11,6 +11,11 @@
 #import "Config.h"
 #import "Pomodoro.h"
 
+@interface AppDelegate(){
+    NSStatusItem * statusItem;
+}
+
+@end
 
 @implementation AppDelegate
 
@@ -21,7 +26,12 @@ Pomodoro *pomodoro;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-
+    [Config restoreCustom];
+    statusItem = [[NSStatusBar systemStatusBar]statusItemWithLength:NSVariableStatusItemLength];
+    statusItem.title = @"25 : 00";
+    statusItem.menu = self.menu;
+    
+    
     self.rodada = [[Rodada alloc]init]; //Iniciando objeto de classe Rodada
 //    minute = [[self.rodada.pomodoros[0] trabalho] intValue]; // colocando valor de trabalho do primeiro pomodoro da rodada
 //    if (minute<10) {
@@ -71,6 +81,7 @@ Pomodoro *pomodoro;
 - (NSString*)formtatFromPomodoroToStringWithMinute: (Pomodoro*)p {
     NSString *strMinute = [self formatFromTimeToString:[p minute]];
     NSString *strSecond = [self formatFromTimeToString:[p second]];
+    statusItem.title = [NSString stringWithFormat:@"%@ : %@",strMinute,strSecond];
     return [NSString stringWithFormat:@"%@ : %@",strMinute,strSecond];
 }
 
