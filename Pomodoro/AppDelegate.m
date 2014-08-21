@@ -5,14 +5,14 @@
 //  Created by Mobile School - Julian on 30/07/14.
 //  Copyright (c) 2014 ___FULLUSERNAME___. All rights reserved.
 //
-// Comentario teste
+
 #import "AppDelegate.h"
 #import "Alarme.h"
 #import "Config.h"
 #import "Pomodoro.h"
 
 @interface AppDelegate(){
-    NSStatusItem * statusItem;
+    NSStatusItem * statusItem; //Item da barra de menu
 }
 
 @end
@@ -26,10 +26,10 @@ Pomodoro *pomodoro;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    [Config restoreCustom];
-    statusItem = [[NSStatusBar systemStatusBar]statusItemWithLength:NSVariableStatusItemLength];
-    statusItem.title = @"🍅";
-    statusItem.menu = self.menu;
+   
+    statusItem = [[NSStatusBar systemStatusBar]statusItemWithLength:NSVariableStatusItemLength]; //Inicializando barra e colocando tamanho variavel.
+    statusItem.title = @"🍅"; // Simbolo na barra de menu
+    statusItem.menu = self.menu; // atribuindo preferencias e quit a barra de menu
     
     
     self.rodada = [[Rodada alloc]init]; //Iniciando objeto de classe Rodada
@@ -41,51 +41,51 @@ Pomodoro *pomodoro;
 //    }
 }
 
-- (IBAction)push_start:(id)sender { //quando o
-    [self updateButtonState:NO];
-
-    pomodoro = [self.rodada next];
-    [pomodoro start];
-    [self execute: pomodoro];
+- (IBAction)push_start:(id)sender { //quando o botão start é apertado
+    [self updateButtonState:NO];  //desativa botão start e ativa botão stop
+    pomodoro = [self.rodada next]; //Troca de pomodoro
+    [pomodoro start]; //Recoloca tempo em pomodoro e muda o estado
+    [self execute: pomodoro];  //ativa o método execute abaixo
 }
 
-- (void) updateButtonState:(BOOL) state {
+- (void) updateButtonState:(BOOL) state { //Em caso de boleano "NO",desativa botão start e ativa botão stop(efeito oposto se for "YES")
     [_startButton setEnabled:state];
     [_stopButton setEnabled:!state];
 }
 
 - (void) execute: (Pomodoro *) pomodoro {
-    [pomodoro pulse];
-    [self updateView: pomodoro];
-    switch ([pomodoro state]) {
-        case ON_PULSE_WORKTIME:
+    [pomodoro pulse]; //Decrementa o tempo do pomodoro
+    [self updateView: pomodoro]; //Atualiza a view
+    switch ([pomodoro state]) {  //Checagem de estado do pomodoro
+        case ON_PULSE_WORKTIME:  //Caso esteja em tempo de trabalho ou descanso usa o método perform
         case ON_PULSE_BREAKTIME:
-            [self performSelector:@selector(execute:) withObject:pomodoro afterDelay:1.0];
+            [self performSelector:@selector(execute:) withObject:pomodoro afterDelay:1.0]; //Ativa método "execute:" com argumento pomodoro, 1 segundo depois de ser ativado
             break;
-        case STOPPED:
-            [self updateButtonState:YES];
+        case STOPPED:                      //Pomodoro parado
+            [self updateButtonState:YES]; //Troca de estado dos botões "start" e "stop"
             break;
-        case CHANGE_WORKTIME_BREAKTIME:
-            [Alarme tocar];
-            [self performSelector:@selector(execute:) withObject:pomodoro afterDelay:1.0];
+        case CHANGE_WORKTIME_BREAKTIME: //Periodo entre workTime e breakTime
+            [Alarme tocar]; //Manda tocar o alarme
+            [self performSelector:@selector(execute:) withObject:pomodoro afterDelay:1.0];//Ativa método "execute:" com argumento pomodoro, 1 segundo depois de ser ativado
+
             break;
-        case END:
-            [self updateButtonState:YES];
-            [Alarme tocar];
+        case END:                          //Pomodoro finalizado
+            [self updateButtonState:YES]; //Troca de estado dos botões "start" e "stop"
+            [Alarme tocar];              //Manda tocar o alarme
             break;
         default:
             break;
     }
 }
 
-- (NSString*)formtatFromPomodoroToStringWithMinute: (Pomodoro*)p {
+- (NSString*)formtatFromPomodoroToStringWithMinute: (Pomodoro*)p { //Transforma o segundo e minuto de um pomodoro em string e a retorna
     NSString *strMinute = [self formatFromTimeToString:[p minute]];
     NSString *strSecond = [self formatFromTimeToString:[p second]];
-    statusItem.title = [NSString stringWithFormat:@"%@ : %@",strMinute,strSecond];
+    
     return [NSString stringWithFormat:@"%@ : %@",strMinute,strSecond];
 }
 
-- (NSString*) formatFromTimeToString: (int) time {
+- (NSString*) formatFromTimeToString: (int) time { //Checa se o tempo é menor que 10, se for, bota 0 na frente do número, e o retorna como string
     NSString * temp;
     if(time < 10){
         temp = [NSString stringWithFormat:@"0%i",time];
@@ -96,14 +96,14 @@ Pomodoro *pomodoro;
     return temp;
 }
 
-- (void) updateView: (Pomodoro *) pomodoro {
+- (void) updateView: (Pomodoro *) pomodoro { //atualiza a view do pomodoro e da barra de menu
     NSString *strTime = [self formtatFromPomodoroToStringWithMinute: pomodoro];
-
+    statusItem.title = strTime;
     [_textTimer setStringValue:strTime];
     
 }
 
-- (IBAction)SelectConfig:(id)sender {
+- (IBAction)SelectConfig:(id)sender { //abre o view de preferencias
     if (!_Janela){
         _Janela =  [[JanelaConfigWindowController alloc] initWithWindowNibName:@"JanelaConfigWindowController"];
     }
@@ -111,7 +111,7 @@ Pomodoro *pomodoro;
     
 }
 
-- (IBAction)push_stop:(id)sender {
+- (IBAction)push_stop:(id)sender { //Força o pomodoro a parar
     [pomodoro forceStop];
 }
 @end

@@ -8,6 +8,11 @@
 
 #import "Rodada.h"
 
+@interface Rodada(){
+    int pomodoroCounter;
+}
+@end
+
 @implementation Rodada
 
 - (instancetype)init
@@ -16,28 +21,29 @@
     if (self) {
         
         [self atualizarPomodoros];
-        
+        pomodoroCounter = 0;
     }
     return self;
 }
 
 - (Pomodoro*) next {
-    Pomodoro *temp = [[Pomodoro alloc] initWithWorktime: 1 andBreaktime: 1];
+    Pomodoro *temp = self.pomodoros[pomodoroCounter];
+    pomodoroCounter++;
     return temp;
 }
 
 - (void)atualizarPomodoros{
     
-    NSString *fileCustom = [[NSBundle mainBundle] pathForResource:@"custom" ofType:@"json"]; //atribui endereco do arquivo custom.json (dentro do aplicativo na pasta resource)
+    NSString *fileCustom = [[NSBundle mainBundle] pathForResource:@"timeConfig" ofType:@"json"]; //atribui endereco do arquivo timeConfig.json (dentro do aplicativo na pasta resource)
     
     NSData *jsonData = [NSData dataWithContentsOfFile:fileCustom options:NSDataReadingMappedIfSafe error:nil]; // le arquivo json e coloca dados em uma variavel NSData, sem tratamento de erro.
     
     NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:NULL]; // Transforma JsonData em Dicionario
     
-    Pomodoro *pomodoro1 = [[Pomodoro alloc]initComTempoDeTrabalho:[dic objectForKey:@"tempoTrabalho1"] eTempoDeDescanso:[dic objectForKey:@"tempoDescanso1"]];
-    Pomodoro *pomodoro2 = [[Pomodoro alloc]initComTempoDeTrabalho:[dic objectForKey:@"tempoTrabalho2"] eTempoDeDescanso:[dic objectForKey:@"tempoDescanso2"]];
-    Pomodoro *pomodoro3 = [[Pomodoro alloc]initComTempoDeTrabalho:[dic objectForKey:@"tempoTrabalho3"] eTempoDeDescanso:[dic objectForKey:@"tempoDescanso3"]];
-    Pomodoro *pomodoro4 = [[Pomodoro alloc]initComTempoDeTrabalho:[dic objectForKey:@"tempoTrabalho4"] eTempoDeDescanso:[dic objectForKey:@"tempoDescanso4"]];
+    Pomodoro *pomodoro1 = [[Pomodoro alloc]initWithWorktime:[[dic objectForKey:@"customWorkTime"]intValue] andBreaktime:[[dic objectForKey:@"customShortBreak"]intValue]];
+    Pomodoro *pomodoro2 = [[Pomodoro alloc]initWithWorktime:[[dic objectForKey:@"customWorkTime"]intValue] andBreaktime:[[dic objectForKey:@"customShortBreak"]intValue]];
+    Pomodoro *pomodoro3 = [[Pomodoro alloc]initWithWorktime:[[dic objectForKey:@"customWorkTime"]intValue] andBreaktime:[[dic objectForKey:@"customShortBreak"]intValue]];
+    Pomodoro *pomodoro4 = [[Pomodoro alloc]initWithWorktime:[[dic objectForKey:@"customWorkTime"]intValue] andBreaktime:[[dic objectForKey:@"customLongBreak"]intValue]];
     
     self.pomodoros = [NSMutableArray arrayWithObjects: pomodoro1, pomodoro2, pomodoro3, pomodoro4, nil];
 

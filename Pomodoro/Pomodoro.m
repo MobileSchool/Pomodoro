@@ -20,18 +20,18 @@
     enum PomodoroState state;
 }
 
-- (instancetype)initComTempoDeTrabalho: (id) tempoTrabalho
-                      eTempoDeDescanso: (id) tempoDescanso
-{
-    self = [super init];
-    if (self) {
-        self.trabalho = tempoTrabalho;
-        self.descanso = tempoDescanso;
-        state = NEW;
-        stopped = YES;
-    }
-    return self;
-}
+//- (instancetype)initComTempoDeTrabalho: (id) tempoTrabalho
+//                      eTempoDeDescanso: (id) tempoDescanso
+//{
+//    self = [super init];
+//    if (self) {
+//        self.trabalho = tempoTrabalho;
+//        self.descanso = tempoDescanso;
+//        state = NEW;
+//        stopped = YES;
+//    }
+//    return self;
+//}
 
 - (instancetype) initWithWorktime:(int)wTime andBreaktime:(int)bTime {
     self = [super init];
