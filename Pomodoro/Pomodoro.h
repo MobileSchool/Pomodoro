@@ -14,12 +14,7 @@
 
 @interface Pomodoro : NSObject
 
-@property id trabalho;
-@property id descanso;
 @property (readonly) enum PomodoroState state;
-
-- (instancetype)initComTempoDeTrabalho: (id) tempoTrabalho
-                      eTempoDeDescanso: (id) tempoDescanso;
 
 - (instancetype) initWithWorktime: (int) worktime andBreaktime: (int) breaktime;
 

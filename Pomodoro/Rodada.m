@@ -28,7 +28,11 @@
 
 - (Pomodoro*) next {
     Pomodoro *temp = self.pomodoros[pomodoroCounter];
-    pomodoroCounter++;
+    if (pomodoroCounter <=2 ) {
+        pomodoroCounter++;
+    }else{
+        pomodoroCounter=0;
+    }
     return temp;
 }
 

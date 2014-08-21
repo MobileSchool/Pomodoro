@@ -21,7 +21,7 @@
 @property Rodada* rodada;
 
 - (IBAction)push_start:(id)sender;
-//- (void)tick:(id)sender;
+
 
 @property JanelaConfigWindowController *Janela;
 - (IBAction)SelectConfig:(id)sender;

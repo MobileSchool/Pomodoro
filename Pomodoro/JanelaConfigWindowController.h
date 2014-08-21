@@ -10,6 +10,7 @@
 #import "Config.h"
 
 
+
 @interface JanelaConfigWindowController : NSWindowController
 
 @property (weak) IBOutlet NSTextField *tempoTrabalho1;

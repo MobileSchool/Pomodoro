@@ -19,8 +19,8 @@
 
 @implementation AppDelegate
 
-int contadorPomodoros = 0;
-int trocaTrabalhoDescanso = 1;
+//int contadorPomodoros = 0;
+//int trocaTrabalhoDescanso = 1;
 
 Pomodoro *pomodoro;
 
@@ -28,23 +28,18 @@ Pomodoro *pomodoro;
 {
    
     statusItem = [[NSStatusBar systemStatusBar]statusItemWithLength:NSVariableStatusItemLength]; //Inicializando barra e colocando tamanho variavel.
-    statusItem.title = @"🍅"; // Simbolo na barra de menu
     statusItem.menu = self.menu; // atribuindo preferencias e quit a barra de menu
-    
-    
-    self.rodada = [[Rodada alloc]init]; //Iniciando objeto de classe Rodada
-//    minute = [[self.rodada.pomodoros[0] trabalho] intValue]; // colocando valor de trabalho do primeiro pomodoro da rodada
-//    if (minute<10) {
-//        [_textTimer setStringValue:[NSString stringWithFormat:@"0%i : 00",minute]];
-//    }else{
-//        [_textTimer setStringValue:[NSString stringWithFormat:@"%i : 00",minute]]; // colocando minuto na view
-//    }
+    self.rodada = [[Rodada alloc]init]; //Alocando e inicializando rodada
+    pomodoro = [[self.rodada pomodoros] objectAtIndex:0]; //Coloca o primeiro pomodoro na variavel pomodoro
+    [pomodoro start]; //Coloca tempo e muda estado do pomodoro
+    [self updateView:pomodoro]; //atualiza a view
+    statusItem.title = @"🍅"; // Simbolo na barra de menu
 }
 
 - (IBAction)push_start:(id)sender { //quando o botão start é apertado
     [self updateButtonState:NO];  //desativa botão start e ativa botão stop
     pomodoro = [self.rodada next]; //Troca de pomodoro
-    [pomodoro start]; //Recoloca tempo em pomodoro e muda o estado
+    [pomodoro start]; //Coloca tempo em pomodoro e muda o estado
     [self execute: pomodoro];  //ativa o método execute abaixo
 }
 
@@ -108,7 +103,6 @@ Pomodoro *pomodoro;
         _Janela =  [[JanelaConfigWindowController alloc] initWithWindowNibName:@"JanelaConfigWindowController"];
     }
     [_Janela showWindow:self];
-    
 }
 
 - (IBAction)push_stop:(id)sender { //Força o pomodoro a parar
