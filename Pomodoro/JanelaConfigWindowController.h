@@ -12,19 +12,12 @@
 
 @interface JanelaConfigWindowController : NSWindowController
 
-@property (weak) IBOutlet NSTextField *tempoTrabalho1;
-@property (weak) IBOutlet NSTextField *tempoTrabalho2;
-@property (weak) IBOutlet NSTextField *tempoTrabalho3;
-@property (weak) IBOutlet NSTextField *tempoTrabalho4;
-
-@property (weak) IBOutlet NSTextField *tempoDescanso1;
-@property (weak) IBOutlet NSTextField *tempoDescanso2;
-@property (weak) IBOutlet NSTextField *tempoDescanso3;
-@property (weak) IBOutlet NSTextField *tempoDescanso4;
-
 - (IBAction)salvar:(id)sender;
 - (IBAction)restaurarPadrao:(id)sender;
 
+@property (weak) IBOutlet NSPopUpButton *tempoTrabalho;
+@property (weak) IBOutlet NSPopUpButton *tempoDescansoCurto;
+@property (weak) IBOutlet NSPopUpButton *tempoDescansoLongo;
 
 
 @end

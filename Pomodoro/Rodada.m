@@ -34,10 +34,10 @@
     
     NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:NULL]; // Transforma JsonData em Dicionario
     
-    Pomodoro *pomodoro1 = [[Pomodoro alloc]initComTempoDeTrabalho:[dic objectForKey:@"tempoTrabalho1"] eTempoDeDescanso:[dic objectForKey:@"tempoDescanso1"]];
-    Pomodoro *pomodoro2 = [[Pomodoro alloc]initComTempoDeTrabalho:[dic objectForKey:@"tempoTrabalho2"] eTempoDeDescanso:[dic objectForKey:@"tempoDescanso2"]];
-    Pomodoro *pomodoro3 = [[Pomodoro alloc]initComTempoDeTrabalho:[dic objectForKey:@"tempoTrabalho3"] eTempoDeDescanso:[dic objectForKey:@"tempoDescanso3"]];
-    Pomodoro *pomodoro4 = [[Pomodoro alloc]initComTempoDeTrabalho:[dic objectForKey:@"tempoTrabalho4"] eTempoDeDescanso:[dic objectForKey:@"tempoDescanso4"]];
+    Pomodoro *pomodoro1 = [[Pomodoro alloc]initComTempoDeTrabalho:[dic objectForKey:@"tempoTrabalho"] eTempoDeDescanso:[dic objectForKey:@"tempoDescansoCurto"]];
+    Pomodoro *pomodoro2 = [[Pomodoro alloc]initComTempoDeTrabalho:[dic objectForKey:@"tempoTrabalho"] eTempoDeDescanso:[dic objectForKey:@"tempoDescansoCurto"]];
+    Pomodoro *pomodoro3 = [[Pomodoro alloc]initComTempoDeTrabalho:[dic objectForKey:@"tempoTrabalho"] eTempoDeDescanso:[dic objectForKey:@"tempoDescansoCurto"]];
+    Pomodoro *pomodoro4 = [[Pomodoro alloc]initComTempoDeTrabalho:[dic objectForKey:@"tempoTrabalho"] eTempoDeDescanso:[dic objectForKey:@"tempoDescansoLongo"]];
     
     self.pomodoros = [NSMutableArray arrayWithObjects: pomodoro1, pomodoro2, pomodoro3, pomodoro4, nil];
 

@@ -34,20 +34,14 @@
     
 }
 
-
 - (IBAction)salvar:(id)sender {
     
-    NSNumber *trab1 = [NSNumber numberWithInt: [self.tempoTrabalho1 intValue]];
-    NSNumber *trab2 = [NSNumber numberWithInt: [self.tempoTrabalho2 intValue]];
-    NSNumber *trab3 = [NSNumber numberWithInt: [self.tempoTrabalho3 intValue]];
-    NSNumber *trab4 = [NSNumber numberWithInt: [self.tempoTrabalho4 intValue]];
+    NSNumber *trab = [NSNumber numberWithInt: [self.tempoTrabalho intValue]];
     
-    NSNumber *desc1 = [NSNumber numberWithInt: [self.tempoDescanso1 intValue]];
-    NSNumber *desc2 = [NSNumber numberWithInt: [self.tempoDescanso2 intValue]];
-    NSNumber *desc3 = [NSNumber numberWithInt: [self.tempoDescanso3 intValue]];
-    NSNumber *desc4 = [NSNumber numberWithInt: [self.tempoDescanso4 intValue]];
+    NSNumber *descCurto = [NSNumber numberWithInt: [self.tempoDescansoCurto intValue]];
+    NSNumber *descLongo = [NSNumber numberWithInt: [self.tempoDescansoLongo intValue]];
                        
-    [Config changeWorkTime:trab1 shortBreak:desc1 longBreak:desc4];
+    [Config changeWorkTime:trab shortBreak:descCurto longBreak:descLongo];
    
 }
 
