@@ -28,7 +28,7 @@ Pomodoro *pomodoro;
 {
     [Config restoreCustom];
     statusItem = [[NSStatusBar systemStatusBar]statusItemWithLength:NSVariableStatusItemLength];
-    statusItem.title = @"25 : 00";
+    statusItem.title = @"🍅";
     statusItem.menu = self.menu;
     
     
