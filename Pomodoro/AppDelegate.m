@@ -42,7 +42,7 @@ Pomodoro *pomodoro;
 //        [_textTimer setStringValue:[NSString stringWithFormat:@"%i : 00",minute]]; // colocando minuto na view
 //    }
     
-    _window.backgroundColor = [NSColor colorWithPatternImage:[NSImage imageNamed:workBgImage]];
+//    _window.backgroundColor = [NSColor colorWithPatternImage:[NSImage imageNamed:workBgImage]];
     
 }
 
@@ -74,8 +74,8 @@ Pomodoro *pomodoro;
         case CHANGE_WORKTIME_BREAKTIME:
             [Alarme tocar];
             [self performSelector:@selector(execute:) withObject:pomodoro afterDelay:1.0];
-            [self swapImage];
-             break;
+            
+            break;
         case END:
             [self updateButtonState:YES];
             [Alarme tocar];
@@ -109,7 +109,7 @@ Pomodoro *pomodoro;
     NSString *strTime = [self formtatFromPomodoroToStringWithMinute: pomodoro];
 
     [_textTimer setStringValue:strTime];
-    
+    [self swapImage];
     
     
     
@@ -128,7 +128,7 @@ Pomodoro *pomodoro;
 }
 
 - (void) swapImage {
-    if (!CHANGE_WORKTIME_BREAKTIME)
+    if (pomodoro.state == ON_PULSE_BREAKTIME)
         _window.backgroundColor = [NSColor colorWithPatternImage:[NSImage imageNamed:restBgImage]];
     else _window.backgroundColor = [NSColor colorWithPatternImage:[NSImage imageNamed:workBgImage]];
     
