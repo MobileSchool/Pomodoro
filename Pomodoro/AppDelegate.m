@@ -21,6 +21,9 @@
 
 //int contadorPomodoros = 0;
 //int trocaTrabalhoDescanso = 1;
+NSString *workBG = @"workBG.png";
+NSString *restBG = @"restBG.png";
+
 
 Pomodoro *pomodoro;
 
@@ -34,6 +37,7 @@ Pomodoro *pomodoro;
     [pomodoro start]; //Coloca tempo e muda estado do pomodoro
     [self updateView:pomodoro]; //atualiza a view
     statusItem.title = @"🍅"; // Simbolo na barra de menu
+    _window.backgroundColor = [NSColor colorWithPatternImage:[NSImage imageNamed:workBG]];
 }
 
 - (IBAction)push_start:(id)sender { //quando o botão start é apertado
@@ -115,8 +119,8 @@ Pomodoro *pomodoro;
 
 - (void) swapImage {
     if (pomodoro.state == ON_PULSE_BREAKTIME)
-        _window.backgroundColor = [NSColor colorWithPatternImage:[NSImage imageNamed:restBgImage]];
-    else _window.backgroundColor = [NSColor colorWithPatternImage:[NSImage imageNamed:workBgImage]];
+        _window.backgroundColor = [NSColor colorWithPatternImage:[NSImage imageNamed:restBG]];
+    else _window.backgroundColor = [NSColor colorWithPatternImage:[NSImage imageNamed:workBG]];
     
 }
 @end
