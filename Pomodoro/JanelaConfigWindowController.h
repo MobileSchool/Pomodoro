@@ -13,15 +13,17 @@
 
 @interface JanelaConfigWindowController : NSWindowController
 
-@property (weak) IBOutlet NSTextField *tempoTrabalho1;
-@property (weak) IBOutlet NSTextField *tempoTrabalho2;
-@property (weak) IBOutlet NSTextField *tempoTrabalho3;
-@property (weak) IBOutlet NSTextField *tempoTrabalho4;
+@property (weak) IBOutlet NSTextField *workTime;
+@property (weak) IBOutlet NSTextField *shortBreak;
+@property (weak) IBOutlet NSTextField *longBreak;
+@property (weak) IBOutlet NSStepper *workStepper;
+@property (weak) IBOutlet NSStepper *shortStepper;
+@property (weak) IBOutlet NSStepper *longStepper;
 
-@property (weak) IBOutlet NSTextField *tempoDescanso1;
-@property (weak) IBOutlet NSTextField *tempoDescanso2;
-@property (weak) IBOutlet NSTextField *tempoDescanso3;
-@property (weak) IBOutlet NSTextField *tempoDescanso4;
+- (IBAction)changeWorkStepper:(id)sender;
+- (IBAction)changeShortStepper:(id)sender;
+- (IBAction)changeLongStepper:(id)sender;
+
 
 - (IBAction)salvar:(id)sender;
 - (IBAction)restaurarPadrao:(id)sender;
