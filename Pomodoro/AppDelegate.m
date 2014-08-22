@@ -69,6 +69,7 @@ Pomodoro *pomodoro;
             [Alarme tocar];              //Manda tocar o alarme
             break;
         default:
+            
             break;
     }
 }
@@ -95,6 +96,9 @@ Pomodoro *pomodoro;
     NSString *strTime = [self formtatFromPomodoroToStringWithMinute: pomodoro];
     statusItem.title = strTime;
     [_textTimer setStringValue:strTime];
+    [self swapImage];
+    
+    
     
 }
 
@@ -107,5 +111,12 @@ Pomodoro *pomodoro;
 
 - (IBAction)push_stop:(id)sender { //Força o pomodoro a parar
     [pomodoro forceStop];
+}
+
+- (void) swapImage {
+    if (pomodoro.state == ON_PULSE_BREAKTIME)
+        _window.backgroundColor = [NSColor colorWithPatternImage:[NSImage imageNamed:restBgImage]];
+    else _window.backgroundColor = [NSColor colorWithPatternImage:[NSImage imageNamed:workBgImage]];
+    
 }
 @end
