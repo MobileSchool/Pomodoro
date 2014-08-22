@@ -21,8 +21,8 @@
 
 int contadorPomodoros = 0;
 int trocaTrabalhoDescanso = 1;
-NSString * workBgImage = @"bg.jpg";
-NSString * restBgImage = @"background-p.jpg";
+NSString * workBgImage = @"workBG.png";
+NSString * restBgImage = @"restBG.png";
 
 Pomodoro *pomodoro;
 
@@ -42,7 +42,7 @@ Pomodoro *pomodoro;
 //        [_textTimer setStringValue:[NSString stringWithFormat:@"%i : 00",minute]]; // colocando minuto na view
 //    }
     
-//    _window.backgroundColor = [NSColor colorWithPatternImage:[NSImage imageNamed:workBgImage]];
+   _window.backgroundColor = [NSColor colorWithPatternImage:[NSImage imageNamed:workBgImage]];
     
 }
 

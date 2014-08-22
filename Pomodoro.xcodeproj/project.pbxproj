@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		820E650B199E83A10044042F /* JanelaConfigWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 820E6509199E83A10044042F /* JanelaConfigWindowController.m */; };
 		820E650C199E83A10044042F /* JanelaConfigWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 820E650A199E83A10044042F /* JanelaConfigWindowController.xib */; };
+		8EF5766F19A6E32C00001798 /* workBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 8EF5766E19A6E32C00001798 /* workBG.png */; };
+		8EF5767119A6E33300001798 /* restBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 8EF5767019A6E33300001798 /* restBG.png */; };
 		A7CD59C8199011E400A0FAE8 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7CD59C7199011E400A0FAE8 /* Cocoa.framework */; };
 		A7CD59D2199011E400A0FAE8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A7CD59D0199011E400A0FAE8 /* InfoPlist.strings */; };
 		A7CD59D4199011E400A0FAE8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A7CD59D3199011E400A0FAE8 /* main.m */; };
@@ -47,6 +49,8 @@
 		820E6508199E83A10044042F /* JanelaConfigWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JanelaConfigWindowController.h; sourceTree = "<group>"; };
 		820E6509199E83A10044042F /* JanelaConfigWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JanelaConfigWindowController.m; sourceTree = "<group>"; };
 		820E650A199E83A10044042F /* JanelaConfigWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JanelaConfigWindowController.xib; sourceTree = "<group>"; };
+		8EF5766E19A6E32C00001798 /* workBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = workBG.png; path = ../../../../workBG.png; sourceTree = "<group>"; };
+		8EF5767019A6E33300001798 /* restBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = restBG.png; path = ../../../../restBG.png; sourceTree = "<group>"; };
 		A7CD59C4199011E400A0FAE8 /* Pomodoro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pomodoro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7CD59C7199011E400A0FAE8 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		A7CD59CA199011E400A0FAE8 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -194,7 +198,9 @@
 		A7CD5A0419901D1900A0FAE8 /* img */ = {
 			isa = PBXGroup;
 			children = (
+				8EF5766E19A6E32C00001798 /* workBG.png */,
 				B91D328C19995DC1001118B9 /* bg.jpg */,
+				8EF5767019A6E33300001798 /* restBG.png */,
 				A7CD5A0519901D1900A0FAE8 /* background-p.jpg */,
 				A7CD5A0619901D1900A0FAE8 /* DSCN1463.jpg */,
 				A7CD5A0719901D1900A0FAE8 /* Start_button_red.png */,
@@ -319,12 +325,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				820E650C199E83A10044042F /* JanelaConfigWindowController.xib in Resources */,
+				8EF5766F19A6E32C00001798 /* workBG.png in Resources */,
 				E3F3142F19A5081200A365FA /* timeConfig.json in Resources */,
 				A7CD59D2199011E400A0FAE8 /* InfoPlist.strings in Resources */,
 				B91D328D19995DC1001118B9 /* bg.jpg in Resources */,
 				A7CD59E0199011E400A0FAE8 /* Images.xcassets in Resources */,
 				B37AE5321992FA9B006EFBB0 /* beep.mp3 in Resources */,
 				A7CD59D8199011E400A0FAE8 /* Credits.rtf in Resources */,
+				8EF5767119A6E33300001798 /* restBG.png in Resources */,
 				A7CD5A0A19901D1900A0FAE8 /* Start_button_red.png in Resources */,
 				A7CD5A0819901D1900A0FAE8 /* background-p.jpg in Resources */,
 				A7CD59DE199011E400A0FAE8 /* MainMenu.xib in Resources */,
