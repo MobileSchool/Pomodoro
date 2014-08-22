@@ -61,14 +61,17 @@ Pomodoro *pomodoro;
             [self performSelector:@selector(execute:) withObject:pomodoro afterDelay:1.0]; //Ativa método "execute:" com argumento pomodoro, 1 segundo depois de ser ativado
             break;
         case STOPPED:                      //Pomodoro parado
+            [self swapImageWork];
             [self updateButtonState:YES]; //Troca de estado dos botões "start" e "stop"
             break;
         case CHANGE_WORKTIME_BREAKTIME: //Periodo entre workTime e breakTime
+            [self swapImageBreak];
             [Alarme tocar]; //Manda tocar o alarme
             [self performSelector:@selector(execute:) withObject:pomodoro afterDelay:1.0];//Ativa método "execute:" com argumento pomodoro, 1 segundo depois de ser ativado
 
             break;
         case END:                          //Pomodoro finalizado
+            [self swapImageWork];
             [self updateButtonState:YES]; //Troca de estado dos botões "start" e "stop"
             [Alarme tocar];              //Manda tocar o alarme
             break;
@@ -100,7 +103,7 @@ Pomodoro *pomodoro;
     NSString *strTime = [self formtatFromPomodoroToStringWithMinute: pomodoro];
     statusItem.title = strTime;
     [_textTimer setStringValue:strTime];
-    [self swapImage];
+    
     
     
     
@@ -117,10 +120,11 @@ Pomodoro *pomodoro;
     [pomodoro forceStop];
 }
 
-- (void) swapImage {
-    if (pomodoro.state == ON_PULSE_BREAKTIME)
-        _window.backgroundColor = [NSColor colorWithPatternImage:[NSImage imageNamed:restBG]];
-    else _window.backgroundColor = [NSColor colorWithPatternImage:[NSImage imageNamed:workBG]];
-    
+- (void) swapImageWork {
+   _window.backgroundColor = [NSColor colorWithPatternImage:[NSImage imageNamed:workBG]];
+}
+
+- (void) swapImageBreak{
+    _window.backgroundColor = [NSColor colorWithPatternImage:[NSImage imageNamed:restBG]];
 }
 @end
