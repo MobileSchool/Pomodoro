@@ -26,6 +26,7 @@
 @property JanelaConfigWindowController *Janela;
 - (IBAction)SelectConfig:(id)sender;
 - (IBAction)push_stop:(id)sender;
+- (IBAction)openPomodoroWindow:(id)sender;
 
 
 

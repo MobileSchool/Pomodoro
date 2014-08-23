@@ -120,6 +120,11 @@ Pomodoro *pomodoro;
     [pomodoro forceStop];
 }
 
+- (IBAction)openPomodoroWindow:(id)sender {
+    if(! [self.window isVisible] )
+        [self.window makeKeyAndOrderFront:sender];
+}
+
 - (void) swapImageWork {
    _window.backgroundColor = [NSColor colorWithPatternImage:[NSImage imageNamed:workBG]];
 }
