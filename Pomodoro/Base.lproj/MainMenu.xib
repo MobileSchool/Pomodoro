@@ -76,15 +76,15 @@
                         <action selector="SelectConfig:" target="Voe-Tx-rLC" id="CMh-ve-0SW"/>
                     </connections>
                 </menuItem>
-                <menuItem title="Quit Pomodoro" keyEquivalent="q" id="vX7-i6-iPq">
-                    <connections>
-                        <action selector="terminate:" target="-1" id="JYb-lG-Kea"/>
-                    </connections>
-                </menuItem>
                 <menuItem title="Mostrar Janela Pomodoro" id="djd-ag-U7O">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="openPomodoroWindow:" target="Voe-Tx-rLC" id="UpH-NM-Aq1"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Quit Pomodoro" keyEquivalent="q" id="vX7-i6-iPq">
+                    <connections>
+                        <action selector="terminate:" target="-1" id="JYb-lG-Kea"/>
                     </connections>
                 </menuItem>
             </items>
