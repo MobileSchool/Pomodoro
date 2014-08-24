@@ -67,6 +67,7 @@ Pomodoro *pomodoro;
         case CHANGE_WORKTIME_BREAKTIME: //Periodo entre workTime e breakTime
             [self swapImageBreak];
             [Alarme tocar]; //Manda tocar o alarme
+            
             [self performSelector:@selector(execute:) withObject:pomodoro afterDelay:1.0];//Ativa método "execute:" com argumento pomodoro, 1 segundo depois de ser ativado
 
             break;
