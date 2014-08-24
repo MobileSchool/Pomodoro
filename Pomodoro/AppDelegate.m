@@ -122,7 +122,9 @@ Pomodoro *pomodoro;
 
 - (IBAction)openPomodoroWindow:(id)sender {
     if(! [self.window isVisible] )
+      //  [self.window makeMainWindow];
         [self.window makeKeyAndOrderFront:sender];
+    
 }
 
 - (void) swapImageWork {
