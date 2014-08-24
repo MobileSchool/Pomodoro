@@ -63,10 +63,19 @@ Pomodoro *pomodoro;
         case STOPPED:                      //Pomodoro parado
             [self swapImageWork];
             [self updateButtonState:YES]; //Troca de estado dos botões "start" e "stop"
+            //Mostra a janela do pomodoro em pop-up
+            if(! [self.window isVisible] )
+                [self.window makeKeyAndOrderFront:nil];
+            [self.window setLevel:NSPopUpMenuWindowLevel];
             break;
         case CHANGE_WORKTIME_BREAKTIME: //Periodo entre workTime e breakTime
             [self swapImageBreak];
             [Alarme tocar]; //Manda tocar o alarme
+            //Mostra a janela do pomodoro em pop-up
+            if(! [self.window isVisible] )
+                [self.window makeKeyAndOrderFront:nil];
+            [self.window setLevel:NSPopUpMenuWindowLevel];
+            
             [self performSelector:@selector(execute:) withObject:pomodoro afterDelay:1.0];//Ativa método "execute:" com argumento pomodoro, 1 segundo depois de ser ativado
 
             break;
@@ -74,6 +83,10 @@ Pomodoro *pomodoro;
             [self swapImageWork];
             [self updateButtonState:YES]; //Troca de estado dos botões "start" e "stop"
             [Alarme tocar];              //Manda tocar o alarme
+            //Mostra a janela do pomodoro em pop-up
+            if(! [self.window isVisible] )
+                [self.window makeKeyAndOrderFront:nil];
+            [self.window setLevel:NSPopUpMenuWindowLevel];
             break;
         default:
             
