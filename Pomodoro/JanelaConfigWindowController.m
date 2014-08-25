@@ -11,6 +11,8 @@
 
 @interface JanelaConfigWindowController ()
 
+@property AppDelegate * delegate;
+
 @end
 
 @implementation JanelaConfigWindowController
@@ -19,7 +21,7 @@
 {
     self = [super initWithWindow:window];
     if (self) {
-        // Initialization code here.
+        self.delegate = (AppDelegate*)[[NSApplication sharedApplication]delegate];
     }
     return self;
 }
@@ -57,7 +59,9 @@
    
 }
 
+
 - (IBAction)restaurarPadrao:(id)sender {
     [Config restoreCustom];
+    [self.delegate.rodada atualizarPomodoros];    
 }
 @end

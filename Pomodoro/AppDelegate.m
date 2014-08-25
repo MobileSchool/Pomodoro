@@ -126,7 +126,9 @@ Pomodoro *pomodoro;
     if (!_Janela){
         _Janela =  [[JanelaConfigWindowController alloc] initWithWindowNibName:@"JanelaConfigWindowController"];
     }
+    
     [_Janela showWindow:self];
+    
 }
 
 - (IBAction)push_stop:(id)sender { //Força o pomodoro a parar
