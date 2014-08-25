@@ -62,6 +62,6 @@
 
 - (IBAction)restaurarPadrao:(id)sender {
     [Config restoreCustom];
-    [self.delegate.rodada atualizarPomodoros];    
+    [self.delegate.rodada atualizarPomodoros];
 }
 @end
