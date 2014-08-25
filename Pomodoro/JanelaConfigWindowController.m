@@ -56,7 +56,7 @@
     NSNumber *desc4 = [NSNumber numberWithInt: [self.longStepper intValue]];
                        
     [Config changeWorkTime:trab1 shortBreak:desc1 longBreak:desc4];
-   
+    [self.delegate.rodada atualizarPomodoros];
 }
 
 
