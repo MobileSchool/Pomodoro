@@ -15,7 +15,9 @@
             <connections>
                 <outlet property="menu" destination="6jd-I9-p4C" id="qrB-99-dPA"/>
                 <outlet property="startButton" destination="RMs-aV-zCR" id="0OV-4C-2HM"/>
+                <outlet property="startMenu" destination="rgp-Ju-72G" id="HXS-6e-UFP"/>
                 <outlet property="stopButton" destination="yth-yU-PKD" id="2gT-eg-uV4"/>
+                <outlet property="stopMenu" destination="FEU-h1-0if" id="sQr-ZM-ME5"/>
                 <outlet property="textTimer" destination="3Eg-GQ-G3v" id="XQY-rK-HlX"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
             </connections>
@@ -71,6 +73,18 @@
         </window>
         <menu id="6jd-I9-p4C">
             <items>
+                <menuItem title="Start" id="rgp-Ju-72G">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="push_start:" target="Voe-Tx-rLC" id="nO6-0Q-bD3"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Stop" hidden="YES" id="FEU-h1-0if">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="push_stop:" target="Voe-Tx-rLC" id="0od-Ej-Ed7"/>
+                    </connections>
+                </menuItem>
                 <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW">
                     <connections>
                         <action selector="SelectConfig:" target="Voe-Tx-rLC" id="CMh-ve-0SW"/>

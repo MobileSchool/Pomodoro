@@ -13,6 +13,10 @@
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 
+@property (weak) IBOutlet NSMenuItem *startMenu;
+
+@property (weak) IBOutlet NSMenuItem *stopMenu;
+
 @property (weak) IBOutlet NSButton *stopButton;
 
 @property (strong) IBOutlet NSButton *startButton;

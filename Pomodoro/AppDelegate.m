@@ -51,6 +51,9 @@ Pomodoro *pomodoro;
 - (void) updateButtonState:(BOOL) state { //Em caso de boleano "NO",desativa botão start e ativa botão stop(efeito oposto se for "YES")
     [_startButton setEnabled:state];
     [_stopButton setEnabled:!state];
+    [_startMenu setHidden:!state];
+    [_stopMenu setHidden:state];
+    
 }
 
 - (void) execute: (Pomodoro *) pomodoro {
