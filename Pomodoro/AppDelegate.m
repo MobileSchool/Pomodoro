@@ -120,10 +120,11 @@ Pomodoro *pomodoro;
 }
 
 - (IBAction)SelectConfig:(id)sender { //abre o view de preferencias
-    if(_startButton.state){
+    
+    if(!_startButton.isEnabled){
         [self alertaPreferencias];
         
-    }else if (!_Janela){
+    }else {
      _Janela =  [[JanelaConfigWindowController alloc] initWithWindowNibName:@"JanelaConfigWindowController"];
      [_Janela showWindow:self];
     }
@@ -155,14 +156,11 @@ Pomodoro *pomodoro;
     [alertaPreferencias setMessageText:@"Atenção!"];
     [alertaPreferencias setInformativeText:@"Você só pode alterar as configurações se o pomodoro estiver parado."];
     [alertaPreferencias setAlertStyle:NSInformationalAlertStyle];
-    [alertaPreferencias beginSheetModalForWindow:[self window] modalDelegate:self didEndSelector:@selector(alertDidEnd:returnCode:contextInfo:) contextInfo:nil];
+    [alertaPreferencias beginSheetModalForWindow:[self window] modalDelegate:self didEndSelector:@selector(alertDidEnd:NSAlertFirstButtonReturn:contextInfo:) contextInfo:nil];
 }
 
-- (void)alertDidEnd:(NSAlert *)alertaPreferencias returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo
+- (void)alertDidEnd:(NSAlert *)alertaPreferencias NSAlertFirstButtonReturn:(NSInteger)NSAlertFirstButtonReturn contextInfo:(void *)contextInfo
 {
-    if (returnCode == NSOKButton)
-    {
-        NSLog(@"(returnCode == NSOKButton)");
-    }
+   
 }
 @end
