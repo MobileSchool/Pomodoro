@@ -13,6 +13,7 @@
         <customObject id="-3" userLabel="Application"/>
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate">
             <connections>
+                <outlet property="labelCounter" destination="tHd-f4-2FQ" id="gXs-t0-MPK"/>
                 <outlet property="menu" destination="6jd-I9-p4C" id="qrB-99-dPA"/>
                 <outlet property="startButton" destination="RMs-aV-zCR" id="0OV-4C-2HM"/>
                 <outlet property="startMenu" destination="rgp-Ju-72G" id="HXS-6e-UFP"/>
@@ -68,6 +69,14 @@
                             <action selector="push_stop:" target="Voe-Tx-rLC" id="BUV-rp-TuN"/>
                         </connections>
                     </button>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tHd-f4-2FQ">
+                        <rect key="frame" x="187" y="10" width="36" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="0🍅" id="bmd-FF-vbT">
+                            <font key="font" metaFont="system" size="15"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
                 </subviews>
             </view>
         </window>

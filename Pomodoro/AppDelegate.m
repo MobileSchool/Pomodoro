@@ -23,6 +23,7 @@
 //int trocaTrabalhoDescanso = 1;
 NSString *workBG = @"workBG.png";
 NSString *restBG = @"restBG.png";
+int pomodoroCounter = 0;
 
 
 Pomodoro *pomodoro;
@@ -84,6 +85,7 @@ Pomodoro *pomodoro;
 
             break;
         case END:                          //Pomodoro finalizado
+            [self changeLabelCounter];
             [self swapImageWork];
             [self updateButtonState:YES]; //Troca de estado dos botões "start" e "stop"
             [Alarme tocar];              //Manda tocar o alarme
@@ -166,4 +168,14 @@ Pomodoro *pomodoro;
 {
    
 }
+
+- (void)changeLabelCounter {
+    NSString *emoji = @"🍅";
+    pomodoroCounter++;
+    NSString *qtPomodoro = [NSString stringWithFormat:@"%i",pomodoroCounter];
+    NSString *newQtPomodoro = [NSString stringWithFormat: @"%@%@",qtPomodoro,emoji];
+    [self.labelCounter setStringValue:newQtPomodoro];
+    
+}
+
 @end

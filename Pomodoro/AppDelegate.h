@@ -24,6 +24,10 @@
 @property (strong) IBOutlet NSTextField *textTimer;
 @property Rodada* rodada;
 
+@property (weak) IBOutlet NSTextField *labelCounter;
+
+
+
 - (IBAction)push_start:(id)sender;
 
 
