@@ -38,6 +38,7 @@ Pomodoro *pomodoro;
     [self updateView:pomodoro]; //atualiza a view
     statusItem.title = @"🍅"; // Simbolo na barra de menu
     _window.backgroundColor = [NSColor colorWithPatternImage:[NSImage imageNamed:workBG]];
+    
 }
 
 - (IBAction)push_start:(id)sender { //quando o botão start é apertado
@@ -116,19 +117,16 @@ Pomodoro *pomodoro;
     NSString *strTime = [self formtatFromPomodoroToStringWithMinute: pomodoro];
     statusItem.title = strTime;
     [_textTimer setStringValue:strTime];
-    
-    
-    
-    
 }
 
 - (IBAction)SelectConfig:(id)sender { //abre o view de preferencias
-    if (!_Janela){
-        _Janela =  [[JanelaConfigWindowController alloc] initWithWindowNibName:@"JanelaConfigWindowController"];
+    if(_startButton.state){
+        [self alertaPreferencias];
+        
+    }else if (!_Janela){
+     _Janela =  [[JanelaConfigWindowController alloc] initWithWindowNibName:@"JanelaConfigWindowController"];
+     [_Janela showWindow:self];
     }
-    
-    [_Janela showWindow:self];
-    
 }
 
 - (IBAction)push_stop:(id)sender { //Força o pomodoro a parar
@@ -142,11 +140,29 @@ Pomodoro *pomodoro;
     
 }
 
-- (void) swapImageWork {
+- (void) swapImageWork { //troca para imagem de fundo de trabalho
    _window.backgroundColor = [NSColor colorWithPatternImage:[NSImage imageNamed:workBG]];
 }
 
-- (void) swapImageBreak{
+- (void) swapImageBreak{ //troca para imagem de descanso
     _window.backgroundColor = [NSColor colorWithPatternImage:[NSImage imageNamed:restBG]];
+}
+
+
+- (void) alertaPreferencias {
+    NSAlert *alertaPreferencias = [[NSAlert alloc]init];
+    [alertaPreferencias addButtonWithTitle:@"OK"];
+    [alertaPreferencias setMessageText:@"Atenção!"];
+    [alertaPreferencias setInformativeText:@"Você só pode alterar as configurações se o pomodoro estiver parado."];
+    [alertaPreferencias setAlertStyle:NSInformationalAlertStyle];
+    [alertaPreferencias beginSheetModalForWindow:[self window] modalDelegate:self didEndSelector:@selector(alertDidEnd:returnCode:contextInfo:) contextInfo:nil];
+}
+
+- (void)alertDidEnd:(NSAlert *)alertaPreferencias returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo
+{
+    if (returnCode == NSOKButton)
+    {
+        NSLog(@"(returnCode == NSOKButton)");
+    }
 }
 @end
