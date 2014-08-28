@@ -10,31 +10,35 @@
 #import "Time.h"
 
 @implementation Time {
-    int internalValue;
-    int internalTime;
+    NSTimeInterval initial;
+    int elapsed;
+    int total;
 }
 
 -(instancetype)initWithMinutes:(int)value {
     self = [super init];
     if (self) {
-        internalValue = value * 60;
+        total = value * 60;
     }
     return self;
 }
 
 -(NSString*)timeWithStringFormat {
-    int minutes = (int)internalTime / 60.0;
-    int seconds = internalTime - (minutes * 60);
-    return [NSString stringWithFormat:@"%02u:%02u", minutes, seconds];
+    int time = total - elapsed;
+    
+    int minutes = (int) (time / 60.0);
+    int seconds = (int) (time - (minutes * 60));
+    
+    return [NSString stringWithFormat:@"%02u : %02u",minutes,seconds];
 }
 
 -(BOOL)pulse {
-    internalTime--;
-    return (internalTime == 0);
+    elapsed = [NSDate timeIntervalSinceReferenceDate] - initial;
+    return elapsed >= total;
 }
 
 -(Time*)start{
-    internalTime = internalValue;
+    initial = [NSDate timeIntervalSinceReferenceDate];
     return self;
 }
 @end

@@ -13,13 +13,9 @@
 @implementation Pomodoro {
 // atributos privados ficam entre chaves
     // e não tem atribuição de valores
-    int second;
-    int minute;
     Time *myTime;
     Time *worktime;
     Time *breaktime;
-//    int intWorktime;
-//    int intBreaktime;
     BOOL stopped;
     enum PomodoroState state;
 }
@@ -35,25 +31,15 @@
     return self;
 }
 
-- (BOOL)pulseRegressiveTime {
-//    second--;
-//    if(second < 0){
-//        second = 59;
-//        minute--;
-//    }
-//    return (second == 0 && minute == 0);
-    return [myTime pulse];
-}
-
 - (void) pulse {
     switch (state) {
         case ON_PULSE_BREAKTIME:
-            if ([self pulseRegressiveTime]) {
+            if ([myTime pulse]) {
                 [self finish];
             }
             break;
         case ON_PULSE_WORKTIME:
-            if ([self pulseRegressiveTime]) {
+            if ([myTime pulse]) {
                 [self changeTimeFromWorkToBreak];
             }
             break;
@@ -66,7 +52,6 @@
 
 -(NSString*) timeWithStringFormat {
     return [myTime timeWithStringFormat];
-//    return [NSString stringWithFormat:@"%02u:%02u", minute, second];
 }
 
 - (enum PomodoroState) state {
@@ -83,15 +68,11 @@
 
 - (void) start {
     myTime = [worktime start];
-//    minute = intWorktime;
-    second = 0;
     state = ON_PULSE_WORKTIME;
 }
 
 - (void) startBreaktime {
     myTime = [breaktime start];
-//    minute = intBreaktime;
-    second = 0;
     state = ON_PULSE_BREAKTIME;
 }
 
