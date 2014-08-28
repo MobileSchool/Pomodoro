@@ -82,6 +82,13 @@
         </window>
         <menu id="6jd-I9-p4C">
             <items>
+                <menuItem title="Mostrar Janela Pomodoro" id="djd-ag-U7O">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="openPomodoroWindow:" target="Voe-Tx-rLC" id="UpH-NM-Aq1"/>
+                    </connections>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="KcW-TH-QqP"/>
                 <menuItem title="Start" id="rgp-Ju-72G">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
@@ -94,17 +101,13 @@
                         <action selector="push_stop:" target="Voe-Tx-rLC" id="0od-Ej-Ed7"/>
                     </connections>
                 </menuItem>
+                <menuItem isSeparatorItem="YES" id="4C9-qw-0gJ"/>
                 <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW">
                     <connections>
                         <action selector="SelectConfig:" target="Voe-Tx-rLC" id="CMh-ve-0SW"/>
                     </connections>
                 </menuItem>
-                <menuItem title="Mostrar Janela Pomodoro" id="djd-ag-U7O">
-                    <modifierMask key="keyEquivalentModifierMask"/>
-                    <connections>
-                        <action selector="openPomodoroWindow:" target="Voe-Tx-rLC" id="UpH-NM-Aq1"/>
-                    </connections>
-                </menuItem>
+                <menuItem isSeparatorItem="YES" id="TEt-LE-e0L"/>
                 <menuItem title="Quit Pomodoro" keyEquivalent="q" id="vX7-i6-iPq">
                     <connections>
                         <action selector="terminate:" target="-1" id="JYb-lG-Kea"/>

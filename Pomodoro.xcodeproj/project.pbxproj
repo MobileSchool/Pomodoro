@@ -153,7 +153,6 @@
 			isa = PBXGroup;
 			children = (
 				E3F3142E19A5081200A365FA /* timeConfig.json */,
-				E34D4F9A19A28BF7004BE314 /* PomodoroState.h */,
 				A7CD5A0419901D1900A0FAE8 /* img */,
 				B368F01B19A586FD0067EB1D /* Models */,
 				B368F01A19A586F00067EB1D /* Views */,
@@ -231,6 +230,7 @@
 		B368F01B19A586FD0067EB1D /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E34D4F9A19A28BF7004BE314 /* PomodoroState.h */,
 				A7CD59FB1990146300A0FAE8 /* Pomodoro.h */,
 				A7CD59FE199015F800A0FAE8 /* Time.h */,
 				A7CD5A011990165600A0FAE8 /* Alarme.h */,
