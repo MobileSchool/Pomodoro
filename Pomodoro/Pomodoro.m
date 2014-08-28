@@ -80,6 +80,11 @@
     return minute;
 }
 
+
+-(NSString*) timeWithStringFormat {
+    return [NSString stringWithFormat:@"%02u:%02u", minute, second];
+}
+
 - (enum PomodoroState) state {
     return state;
 }

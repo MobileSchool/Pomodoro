@@ -23,6 +23,8 @@
 //- (enum PomodoroState) state;
 - (int) minute;
 - (int) second;
+
+-(NSString*) timeWithStringFormat;
 - (void) forceStop;
 - (void) start;
 

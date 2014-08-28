@@ -100,26 +100,8 @@ Pomodoro *pomodoro;
     }
 }
 
-- (NSString*)formtatFromPomodoroToStringWithMinute: (Pomodoro*)p { //Transforma o segundo e minuto de um pomodoro em string e a retorna
-    NSString *strMinute = [self formatFromTimeToString:[p minute]];
-    NSString *strSecond = [self formatFromTimeToString:[p second]];
-    
-    return [NSString stringWithFormat:@"%@ : %@",strMinute,strSecond];
-}
-
-- (NSString*) formatFromTimeToString: (int) time { //Checa se o tempo é menor que 10, se for, bota 0 na frente do número, e o retorna como string
-    NSString * temp;
-    if(time < 10){
-        temp = [NSString stringWithFormat:@"0%i",time];
-    }else{
-        temp = [NSString stringWithFormat:@"%i",time];
-        
-    }
-    return temp;
-}
-
 - (void) updateView: (Pomodoro *) pomodoro { //atualiza a view do pomodoro e da barra de menu
-    NSString *strTime = [self formtatFromPomodoroToStringWithMinute: pomodoro];
+    NSString *strTime = [pomodoro timeWithStringFormat];
     statusItem.title = strTime;
     [_textTimer setStringValue:strTime];
 }
