@@ -3,41 +3,32 @@
 //  Pomodoro
 //
 //  Created: Leonardo Minora on 04/08/14
-//  Modified: Leonardo Minora on 20/08/2014
+//  Modified: Leonardo Minora on 28/08/2014
 //  Copyright (c) 2014 Mobile School at IFRN-CNAT. All rights reserved.
 //
 
 #import "Pomodoro.h"
+#import "Time.h"
 
 @implementation Pomodoro {
 // atributos privados ficam entre chaves
     // e não tem atribuição de valores
     int second;
     int minute;
-    int worktime;
-    int breaktime;
+    Time *myTime;
+    Time *worktime;
+    Time *breaktime;
+//    int intWorktime;
+//    int intBreaktime;
     BOOL stopped;
     enum PomodoroState state;
 }
 
-//- (instancetype)initComTempoDeTrabalho: (id) tempoTrabalho
-//                      eTempoDeDescanso: (id) tempoDescanso
-//{
-//    self = [super init];
-//    if (self) {
-//        self.trabalho = tempoTrabalho;
-//        self.descanso = tempoDescanso;
-//        state = NEW;
-//        stopped = YES;
-//    }
-//    return self;
-//}
-
-- (instancetype) initWithWorktime:(int)wTime andBreaktime:(int)bTime {
+- (instancetype) initWithWorktime:(int)intWorktime andBreaktime:(int)intBreaktime {
     self = [super init];
     if (self) {
-        worktime = wTime;
-        breaktime = bTime;
+        worktime = [[Time alloc] initWithMinutes: intWorktime];
+        breaktime = [[Time alloc] initWithMinutes: intBreaktime];
         stopped = NEW;
         stopped = YES;
     }
@@ -45,12 +36,13 @@
 }
 
 - (BOOL)pulseRegressiveTime {
-    second--;
-    if(second < 0){
-        second = 59;
-        minute--;
-    }
-    return (second == 0 && minute == 0);
+//    second--;
+//    if(second < 0){
+//        second = 59;
+//        minute--;
+//    }
+//    return (second == 0 && minute == 0);
+    return [myTime pulse];
 }
 
 - (void) pulse {
@@ -72,17 +64,9 @@
     }
 }
 
-- (int) second {
-    return second;
-}
-
-- (int) minute {
-    return minute;
-}
-
-
 -(NSString*) timeWithStringFormat {
-    return [NSString stringWithFormat:@"%02u:%02u", minute, second];
+    return [myTime timeWithStringFormat];
+//    return [NSString stringWithFormat:@"%02u:%02u", minute, second];
 }
 
 - (enum PomodoroState) state {
@@ -98,13 +82,15 @@
 }
 
 - (void) start {
-    minute = worktime;
+    myTime = [worktime start];
+//    minute = intWorktime;
     second = 0;
     state = ON_PULSE_WORKTIME;
 }
 
 - (void) startBreaktime {
-    minute = breaktime;
+    myTime = [breaktime start];
+//    minute = intBreaktime;
     second = 0;
     state = ON_PULSE_BREAKTIME;
 }

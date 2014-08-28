@@ -10,8 +10,12 @@
 
 @interface Time : NSObject
 
-@property NSInteger hora;
-@property NSInteger minuto;
-@property NSInteger segundo;
+@property (readonly) NSInteger minuto;
+@property (readonly) NSInteger segundo;
+
+-(instancetype)initWithMinutes:(int)minutes;
+-(NSString*)timeWithStringFormat;
+-(BOOL)pulse;
+-(Time*)start;
 
 @end

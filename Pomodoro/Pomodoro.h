@@ -3,7 +3,7 @@
 //  Pomodoro
 //
 //  Created: Leonardo Minora on 04/08/14
-//  Modified: Leonardo Minora on 20/08/2014
+//  Modified: Leonardo Minora on 28/08/2014
 //  Copyright (c) 2014 Mobile School at IFRN-CNAT. All rights reserved.
 
 
@@ -21,8 +21,6 @@
 - (void) pulse;
 //propriedade não sintetizada e somente leitura  
 //- (enum PomodoroState) state;
-- (int) minute;
-- (int) second;
 
 -(NSString*) timeWithStringFormat;
 - (void) forceStop;
