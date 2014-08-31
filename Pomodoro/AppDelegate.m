@@ -74,6 +74,7 @@ Pomodoro *pomodoro;
             if(! [self.window isVisible] )
                 [self.window makeKeyAndOrderFront:nil];
             [self.window setLevel:NSPopUpMenuWindowLevel];
+            [self.window setLevel:NSNormalWindowLevel];
             break;
         case CHANGE_WORKTIME_BREAKTIME: //Periodo entre workTime e breakTime
             [self swapImageBreak];
@@ -82,6 +83,7 @@ Pomodoro *pomodoro;
             if(! [self.window isVisible] )
                 [self.window makeKeyAndOrderFront:nil];
             [self.window setLevel:NSPopUpMenuWindowLevel];
+            [self.window setLevel:NSNormalWindowLevel];
             
             [self performSelector:@selector(execute) withObject:nil afterDelay:1.0];//Ativa método "execute:" com argumento pomodoro, 1 segundo depois de ser ativado
 
@@ -95,6 +97,7 @@ Pomodoro *pomodoro;
             if(! [self.window isVisible] )
                 [self.window makeKeyAndOrderFront:nil];
             [self.window setLevel:NSPopUpMenuWindowLevel];
+            [self.window setLevel:NSNormalWindowLevel];
             break;
         default:
             
@@ -125,8 +128,9 @@ Pomodoro *pomodoro;
 
 - (IBAction)openPomodoroWindow:(id)sender {
     if(! [self.window isVisible] )
-        [self.window makeKeyAndOrderFront:sender];
-        [self.window setLevel:NSPopUpMenuWindowLevel];
+        [self.window makeKeyAndOrderFront:nil];
+    [self.window setLevel:NSPopUpMenuWindowLevel];
+    [self.window setLevel:NSNormalWindowLevel];
     
 }
 
