@@ -22,6 +22,8 @@
 
 NSString *workBG;
 NSString *restBG;
+NSString *timeEmoji;
+NSString *strTime;
 int pomodoroCounter;
 
 Pomodoro *pomodoro;
@@ -39,7 +41,8 @@ Pomodoro *pomodoro;
     pomodoro = [[self.rodada pomodoros] objectAtIndex:0]; //Coloca o primeiro pomodoro na variavel pomodoro
     [pomodoro start]; //Coloca tempo e muda estado do pomodoro
     [self updateView]; //atualiza a view
-    statusItem.title = @"🍅"; // Simbolo na barra de menu
+    timeEmoji = @"🍅";
+    statusItem.title = timeEmoji; // Simbolo na barra de menu
     _window.backgroundColor = [NSColor colorWithPatternImage:[NSImage imageNamed:workBG]];
     
 }
@@ -106,9 +109,15 @@ Pomodoro *pomodoro;
 }
 
 - (void) updateView { //atualiza a view do pomodoro e da barra de menu
-    NSString *strTime = [pomodoro timeWithStringFormat];
-    statusItem.title = strTime;
+    strTime = [pomodoro timeWithStringFormat];
+
+    if (self.clockMenuItem.state == 1) {
+       timeEmoji = [NSString stringWithFormat:@"%@%@",strTime, @"🍅"];
+    }
+    statusItem.title = timeEmoji;
     [_textTimer setStringValue:strTime];
+  
+    
 }
 
 - (IBAction)SelectConfig:(id)sender { //abre o view de preferencias
@@ -133,6 +142,23 @@ Pomodoro *pomodoro;
     [self.window setLevel:NSNormalWindowLevel];
     
 }
+
+- (IBAction)changeStateClockMenuItem:(id)sender {
+    
+    if ( self.clockMenuItem.state  ==  0) {
+        [self.clockMenuItem setState:1];
+        [self updateMenuString];
+    }
+    else {
+        [self.clockMenuItem setState:0];
+        [self updateMenuString];
+              }
+    
+    
+    
+}
+
+
 
 - (void) swapImageWork { //troca para imagem de fundo de trabalho
    _window.backgroundColor = [NSColor colorWithPatternImage:[NSImage imageNamed:workBG]];
@@ -162,8 +188,18 @@ Pomodoro *pomodoro;
     pomodoroCounter++;
     NSString *qtPomodoro = [NSString stringWithFormat:@"%i",pomodoroCounter];
     NSString *newQtPomodoro = [NSString stringWithFormat: @"%@%@",qtPomodoro,emoji];
+   
     [self.labelCounter setStringValue:newQtPomodoro];
     
+}
+
+- (void)updateMenuString{
+    if ([timeEmoji  isEqual: @"🍅"]) {
+        timeEmoji = [NSString stringWithFormat:@"%@%@",strTime, timeEmoji];
+    }else{
+        timeEmoji = @"🍅";
+    };
+        
 }
 
 @end

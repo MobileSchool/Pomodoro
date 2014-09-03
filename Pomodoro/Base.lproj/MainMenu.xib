@@ -13,6 +13,8 @@
         <customObject id="-3" userLabel="Application"/>
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate">
             <connections>
+                <outlet property="ShowClock" destination="qdd-EN-nU8" id="yu8-BC-yKH"/>
+                <outlet property="clockMenuItem" destination="qdd-EN-nU8" id="WtT-J0-kc3"/>
                 <outlet property="labelCounter" destination="tHd-f4-2FQ" id="gXs-t0-MPK"/>
                 <outlet property="menu" destination="6jd-I9-p4C" id="qrB-99-dPA"/>
                 <outlet property="startButton" destination="RMs-aV-zCR" id="0OV-4C-2HM"/>
@@ -28,7 +30,7 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="335" y="390" width="234" height="298"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="778"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1400" height="1028"/>
             <view key="contentView" wantsLayer="YES" id="EiT-Mj-1SZ">
                 <rect key="frame" x="0.0" y="0.0" width="234" height="298"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -82,10 +84,16 @@
         </window>
         <menu id="6jd-I9-p4C">
             <items>
-                <menuItem title="Mostrar Janela Pomodoro" id="djd-ag-U7O">
+                <menuItem title="Show Pomodoro" id="djd-ag-U7O">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="openPomodoroWindow:" target="Voe-Tx-rLC" id="UpH-NM-Aq1"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Show Clock" id="qdd-EN-nU8">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="changeStateClockMenuItem:" target="Voe-Tx-rLC" id="iab-VC-01K"/>
                     </connections>
                 </menuItem>
                 <menuItem isSeparatorItem="YES" id="KcW-TH-QqP"/>

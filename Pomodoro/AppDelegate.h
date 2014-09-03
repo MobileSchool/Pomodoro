@@ -25,6 +25,7 @@
 @property Rodada* rodada;
 
 @property (weak) IBOutlet NSTextField *labelCounter;
+@property (weak) IBOutlet NSMenuItem *clockMenuItem;
 
 
 
@@ -36,6 +37,8 @@
 - (IBAction)SelectConfig:(id)sender;
 - (IBAction)push_stop:(id)sender;
 - (IBAction)openPomodoroWindow:(id)sender;
+- (IBAction)changeStateClockMenuItem:(id)sender;
+
 
 
 
