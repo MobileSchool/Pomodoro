@@ -98,7 +98,7 @@ Pomodoro *pomodoro;
             [Alarme tocar];              //Manda tocar o alarme
             //Mostra a janela do pomodoro em pop-up
             if(! [self.window isVisible] )
-                [self.window makeKeyAndOrderFront:nil];
+            [self.window makeKeyAndOrderFront:nil];
             [self.window setLevel:NSPopUpMenuWindowLevel];
             [self.window setLevel:NSNormalWindowLevel];
             break;
@@ -133,6 +133,8 @@ Pomodoro *pomodoro;
 
 - (IBAction)push_stop:(id)sender { //Força o pomodoro a parar
     [pomodoro forceStop];
+    [pomodoro callEraseElasep];
+    [self updateView];
 }
 
 - (IBAction)openPomodoroWindow:(id)sender {

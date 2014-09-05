@@ -17,5 +17,5 @@
 -(NSString*)timeWithStringFormat;
 -(BOOL)pulse;
 -(Time*)start;
-
+-(void)eraseElapse;
 @end
