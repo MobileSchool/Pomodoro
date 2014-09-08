@@ -74,19 +74,16 @@ Pomodoro *pomodoro;
             [self swapImageWork];
             [self updateButtonState:YES]; //Troca de estado dos botões "start" e "stop"
             //Mostra a janela do pomodoro em pop-up
-            if(! [self.window isVisible] )
-                [self.window makeKeyAndOrderFront:nil];
-            [self.window setLevel:NSPopUpMenuWindowLevel];
-            [self.window setLevel:NSNormalWindowLevel];
+            
+            [self popUp];
+            
             break;
         case CHANGE_WORKTIME_BREAKTIME: //Periodo entre workTime e breakTime
             [self swapImageBreak];
             [Alarme tocar]; //Manda tocar o alarme
             //Mostra a janela do pomodoro em pop-up
-            if(! [self.window isVisible] )
-                [self.window makeKeyAndOrderFront:nil];
-            [self.window setLevel:NSPopUpMenuWindowLevel];
-            [self.window setLevel:NSNormalWindowLevel];
+            
+            [self popUp];
             
             [self performSelector:@selector(execute) withObject:nil afterDelay:1.0];//Ativa método "execute:" com argumento pomodoro, 1 segundo depois de ser ativado
 
@@ -97,10 +94,9 @@ Pomodoro *pomodoro;
             [self updateButtonState:YES]; //Troca de estado dos botões "start" e "stop"
             [Alarme tocar];              //Manda tocar o alarme
             //Mostra a janela do pomodoro em pop-up
-            if(! [self.window isVisible] )
-                [self.window makeKeyAndOrderFront:nil];
-            [self.window setLevel:NSPopUpMenuWindowLevel];
-            [self.window setLevel:NSNormalWindowLevel];
+            
+            [self popUp];
+            
             break;
         default:
             
@@ -134,10 +130,8 @@ Pomodoro *pomodoro;
 }
 
 - (IBAction)openPomodoroWindow:(id)sender {
-    if(! [self.window isVisible] )
-        [self.window makeKeyAndOrderFront:nil];
-    [self.window setLevel:NSPopUpMenuWindowLevel];
-    [self.window setLevel:NSNormalWindowLevel];
+    
+    [self popUp];
     
 }
 
@@ -153,6 +147,14 @@ Pomodoro *pomodoro;
               }
     
     
+    
+}
+
+-(void) popUp {
+  
+    [self.window close];
+    [self.window orderFrontRegardless];
+   
     
 }
 
