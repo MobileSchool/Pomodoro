@@ -71,6 +71,7 @@
     state = ON_PULSE_WORKTIME;
 }
 
+
 - (void) startBreaktime {
     myTime = [breaktime start];
     state = ON_PULSE_BREAKTIME;
@@ -78,6 +79,9 @@
 
 - (void) changeTimeFromWorkToBreak {
     state = CHANGE_WORKTIME_BREAKTIME;
+}
+- (void) callEraseElasep{
+    [worktime eraseElapse];
 }
 
 @end

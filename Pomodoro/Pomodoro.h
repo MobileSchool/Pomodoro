@@ -25,5 +25,6 @@
 -(NSString*) timeWithStringFormat;
 - (void) forceStop;
 - (void) start;
+- (void) callEraseElasep;
 
 @end

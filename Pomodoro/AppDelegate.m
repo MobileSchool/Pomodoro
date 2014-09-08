@@ -127,6 +127,8 @@ Pomodoro *pomodoro;
 
 - (IBAction)push_stop:(id)sender { //Força o pomodoro a parar
     [pomodoro forceStop];
+    [pomodoro callEraseElasep];
+    [self updateView];
 }
 
 - (IBAction)openPomodoroWindow:(id)sender {

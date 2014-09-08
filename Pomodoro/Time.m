@@ -43,4 +43,7 @@
     initial = [NSDate timeIntervalSinceReferenceDate];
     return self;
 }
+-(void)eraseElapse{
+    elapsed = 0;
+}
 @end
