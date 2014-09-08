@@ -132,7 +132,7 @@ Pomodoro *pomodoro;
 }
 
 - (IBAction)openPomodoroWindow:(id)sender {
-    
+    //Traz a janela para frente
     [self popUp];
     
 }
