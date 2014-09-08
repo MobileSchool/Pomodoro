@@ -38,7 +38,7 @@ Pomodoro *pomodoro;
     statusItem = [[NSStatusBar systemStatusBar]statusItemWithLength:NSVariableStatusItemLength]; //Inicializando barra e colocando tamanho variavel.
     statusItem.menu = self.menu; // atribuindo preferencias e quit a barra de menu
     self.rodada = [[Rodada alloc]init]; //Alocando e inicializando rodada
-    pomodoro = [[self.rodada pomodoros] objectAtIndex:0]; //Coloca o primeiro pomodoro na variavel pomodoro
+    pomodoro = [self.rodada.pomodoros objectAtIndex:0]; //Coloca o primeiro pomodoro na variavel pomodoro
     [pomodoro start]; //Coloca tempo e muda estado do pomodoro
     [self updateView]; //atualiza a view
     timeEmoji = @"🍅";
@@ -110,14 +110,12 @@ Pomodoro *pomodoro;
 
 - (void) updateView { //atualiza a view do pomodoro e da barra de menu
     strTime = [pomodoro timeWithStringFormat];
-
+    
     if (self.clockMenuItem.state == 1) {
        timeEmoji = [NSString stringWithFormat:@"%@%@",strTime, @"🍅"];
     }
     statusItem.title = timeEmoji;
     [_textTimer setStringValue:strTime];
-  
-    
 }
 
 - (IBAction)SelectConfig:(id)sender { //abre o view de preferencias
@@ -157,7 +155,6 @@ Pomodoro *pomodoro;
     
     
 }
-
 
 
 - (void) swapImageWork { //troca para imagem de fundo de trabalho

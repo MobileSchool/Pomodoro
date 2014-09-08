@@ -32,6 +32,8 @@
     return [NSString stringWithFormat:@"%02u : %02u",minutes,seconds];
 }
 
+
+
 -(BOOL)pulse {
     elapsed = [NSDate timeIntervalSinceReferenceDate] - initial;
     return elapsed >= total;
