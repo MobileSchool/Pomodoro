@@ -22,8 +22,15 @@
     self = [super initWithWindow:window];
     if (self) {
         self.delegate = (AppDelegate*)[[NSApplication sharedApplication]delegate];
+        
+        
+        [self.window orderFrontRegardless];
     }
     return self;
+    
+    
+
+
 }
 
 - (void)windowDidLoad
